@@ -15,7 +15,7 @@ jobs:
       - name: Move PDF to root
         run: |
           mkdir -p public
-          mv CV.pdf public/
+          mv cv.pdf public/
           cp index.html public/
       - name: Upload PDF artifact
         uses: actions/upload-pages-artifact@v3
