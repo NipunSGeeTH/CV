@@ -2,13 +2,13 @@
 
 % Packages:
 \usepackage[
-    ignoreheadfoot, % set margins without considering header and footer
-    top=2 cm, % seperation between body and page edge from the top
-    bottom=2 cm, % seperation between body and page edge from the bottom
-    left=2 cm, % seperation between body and page edge from the left
-    right=2 cm, % seperation between body and page edge from the right
-    footskip=1.0 cm, % seperation between body and footer
-    % showframe % for debugging 
+ignoreheadfoot, % set margins without considering header and footer
+top=2 cm, % seperation between body and page edge from the top
+bottom=2 cm, % seperation between body and page edge from the bottom
+left=2 cm, % seperation between body and page edge from the left
+right=2 cm, % seperation between body and page edge from the right
+footskip=1.0 cm, % seperation between body and footer
+% showframe % for debugging 
 ]{geometry} % for adjusting page geometry
 \usepackage[explicit]{titlesec} % for customizing section titles
 \usepackage{tabularx} % for making tables with fixed width columns
@@ -18,12 +18,13 @@
 \usepackage{enumitem} % for customizing lists
 \usepackage{fontawesome5} % for using icons
 \usepackage{amsmath} % for math
+
 \usepackage[
-    pdftitle={Sangeeth Kariyapperuma CV},
-    pdfauthor={Sangeeth Kariyapperuma},
-    pdfcreator={Sangeeth Kariyapperuma},
-    colorlinks=true,
-    urlcolor=primaryColor
+pdftitle={Sangeeth Kariyapperuma CV},
+pdfauthor={Sangeeth Kariyapperuma},
+pdfcreator={Sangeeth Kariyapperuma},
+colorlinks=true,
+urlcolor=primaryColor
 ]{hyperref} % for links, metadata and bookmarks
 \usepackage[pscoord]{eso-pic} % for floating text on the page
 \usepackage{calc} % for calculating lengths
@@ -34,15 +35,16 @@
 \usepackage{ifthen} % for conditional statements
 \usepackage{needspace}  % for avoiding page break right after the section title
 
+
 \usepackage{iftex} % check if engine is pdflatex, xetex or luatex
 
 % Ensure that generate pdf is machine readable/ATS parsable:
 \ifPDFTeX
-    \input{glyphtounicode}
-    \pdfgentounicode=1
-    \usepackage[T1]{fontenc}
-    \usepackage[utf8]{inputenc}
-    \usepackage{lmodern}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
 \fi
 
 \usepackage[default, type1]{sourcesanspro} 
@@ -57,111 +59,112 @@
 \makeatletter
 \let\ps@customFooterStyle\ps@plain % Copy the plain style to customFooterStyle
 \patchcmd{\ps@customFooterStyle}{\thepage}{
-    \color{gray}\textit{\small  Page \thepage{} of \pageref*{LastPage}}
+	\color{gray}\textit{\small  Page \thepage{} of \pageref*{LastPage}}
 }{}{} % replace number by desired string
 \makeatother
 \pagestyle{customFooterStyle}
 
 \titleformat{\section}{
-    % avoid page braking right after the section title
-    \needspace{4\baselineskip}
-    % make the font size of the section title large and color it with the primary color
-    \Large\color{primaryColor}
+	% avoid page braking right after the section title
+	\needspace{4\baselineskip}
+	% make the font size of the section title large and color it with the primary color
+	\Large\color{primaryColor}
 }{
 }{
 }{
-    % print bold title, give 0.15 cm space and draw a line of 0.8 pt thickness
-    % from the end of the title to the end of the body
-    \textbf{#1}\hspace{0.15cm}\titlerule[0.8pt]\hspace{-0.1cm}
+	% print bold title, give 0.15 cm space and draw a line of 0.8 pt thickness
+	% from the end of the title to the end of the body
+	\textbf{#1}\hspace{0.15cm}\titlerule[0.8pt]\hspace{-0.1cm}
 }[] % section title formatting
 
 \titlespacing{\section}{
-    % left space:
-    -1pt
+	% left space:
+	-1pt
 }{
-    % top space:
-    0.3 cm
+	% top space:
+	0.3 cm
 }{
-    % bottom space:
-    0.2 cm
+	% bottom space:
+	0.2 cm
 } % section title spacing
 
 % \renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} % custom bullet points
 \newenvironment{highlights}{
-    \begin{itemize}[
-        topsep=0.10 cm,
-        parsep=0.10 cm,
-        partopsep=0pt,
-        itemsep=0pt,
-        leftmargin=0.4 cm + 10pt
-    ]
-}{
-    \end{itemize}
+	\begin{itemize}[
+		topsep=0.10 cm,
+		parsep=0.10 cm,
+		partopsep=0pt,
+		itemsep=0pt,
+		leftmargin=0.4 cm + 10pt
+		]
+	}{
+	\end{itemize}
 } % new environment for highlights
 
 \newenvironment{highlightsforbulletentries}{
-    \begin{itemize}[
-        topsep=0.10 cm,
-        parsep=0.10 cm,
-        partopsep=0pt,
-        itemsep=0pt,
-        leftmargin=10pt
-    ]
-}{
-    \end{itemize}
+	\begin{itemize}[
+		topsep=0.10 cm,
+		parsep=0.10 cm,
+		partopsep=0pt,
+		itemsep=0pt,
+		leftmargin=10pt
+		]
+	}{
+	\end{itemize}
 } % new environment for highlights for bullet entries
 
 
 \newenvironment{onecolentry}{
-    \begin{adjustwidth}{
-        0.2 cm + 0.00001 cm
-    }{
-        0.2 cm + 0.00001 cm
-    }
-}{
-    \end{adjustwidth}
+	\begin{adjustwidth}{
+			0.2 cm + 0.00001 cm
+		}{
+			0.2 cm + 0.00001 cm
+		}
+	}{
+	\end{adjustwidth}
 } % new environment for one column entries
 
 \newenvironment{twocolentry}[2][]{
-    \onecolentry
-    \def\secondColumn{#2}
-    \setcolumnwidth{\fill, 4.5 cm}
-    \begin{paracol}{2}
-}{
-    \switchcolumn \raggedleft \secondColumn
-    \end{paracol}
-    \endonecolentry
+	\onecolentry
+	\def\secondColumn{#2}
+	\setcolumnwidth{\fill, 4.5 cm}
+	\begin{paracol}{2}
+	}{
+		\switchcolumn \raggedleft \secondColumn
+	\end{paracol}
+	\endonecolentry
 } % new environment for two column entries
 
 \newenvironment{threecolentry}[3][]{
-    \onecolentry
-    \def\thirdColumn{#3}
-    \setcolumnwidth{1 cm, \fill, 4.5 cm}
-    \begin{paracol}{3}
-    {\raggedright #2} \switchcolumn
-}{
-    \switchcolumn \raggedleft \thirdColumn
-    \end{paracol}
-    \endonecolentry
+	\onecolentry
+	\def\thirdColumn{#3}
+	\setcolumnwidth{1 cm, \fill, 4.5 cm}
+	\begin{paracol}{3}
+		{\raggedright #2} \switchcolumn
+	}{
+		\switchcolumn \raggedleft \thirdColumn
+	\end{paracol}
+	\endonecolentry
 } % new environment for three column entries
 
 \newenvironment{header}{
-    \setlength{\topsep}{0pt}\par\kern\topsep\centering\color{primaryColor}\linespread{1.5}
+	\setlength{\topsep}{0pt}\par\kern\topsep\centering\color{primaryColor}\linespread{1.5}
 }{
-    \par\kern\topsep
+	\par\kern\topsep
 } % new environment for the header
 
-\newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
-  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
-    \put(
-        \LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
-        \LenToUnit{\paperheight-1.0 cm}
-    ){\vtop{{\null}\makebox[0pt][c]{
-        \small\color{gray}\textit{Last updated in August 2025}\hspace{\widthof{Last updated in August 2025}}
-    }}}%
-  }%
-}%
-
+% Replace the long \placelastupdatedtext command with this simpler one:
+\newcommand{\placelastupdatedtext}{%
+	\AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+		\put(
+		\LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
+		\LenToUnit{\paperheight-1.0 cm}
+		){\vtop{{\null}\makebox[0pt][c]{
+					% This will produce: "Last updated in October 6, 2025"
+					\small\color{gray}\textit{Last updated on \today}\hspace{\widthof{Last updated in August 2025}}
+		}}}%
+	}%
+}
 % save the original href command in a new command:
 \let\hrefWithoutArrow\href
 
@@ -170,320 +173,364 @@
 
 
 \begin{document}
-    \newcommand{\AND}{\unskip
-        \cleaders\copy\ANDbox\hskip\wd\ANDbox
-        \ignorespaces
-    }
-    \newsavebox\ANDbox
-    \sbox\ANDbox{}
-
-    \placelastupdatedtext
-    \begin{header}
-        \fontsize{30 pt}{30 pt}
-        \textbf{Sangeeth Kariyapperuma}
-
-        \vspace{0.3 cm}
-
-        \normalsize
-        \mbox{{\footnotesize\faMapMarker*}\hspace*{0.13cm} Sri Lanka}%
-        \kern 0.25 cm%
-        \AND%
-        \kern 0.25 cm%
-        \mbox{\hrefWithoutArrow{mailto:sangeethk.23@cse.mrt.ac.lk}{{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}sangeethk.23@cse.mrt.ac.lk}}%
-        \kern 0.25 cm%
-        \AND%
-        \kern 0.25 cm%
-        \mbox{\hrefWithoutArrow{tel:+94760858499}{{\footnotesize\faPhone*}\hspace*{0.13cm}+94 76 085 8499}}%
-        \kern 0.25 cm%
-        \AND%
-        \kern 0.25 cm%
-        \mbox{\hrefWithoutArrow{https://sangeethnipun.web.app/}{{\footnotesize\faLink}\hspace*{0.13cm}sangeethnipun.web.app}}%
-        \kern 0.25 cm%
-        \AND%
-        \kern 0.25 cm%
-        \mbox{\hrefWithoutArrow{https://linkedin.com/in/nipunsgeeth}{{\footnotesize\faLinkedinIn}\hspace*{0.13cm}nipunsgeeth}}%
-        \kern 0.25 cm%
-        \AND%
-        \kern 0.25 cm%
-        \mbox{\hrefWithoutArrow{https://github.com/nipunsgeeth}{{\footnotesize\faGithub}\hspace*{0.13cm}nipunsgeeth}}%
-    \end{header}
-
-    \vspace{0.3 cm - 0.3 cm}
-
-
-    \section{About Me}
-
-
-
-        
-        \begin{onecolentry}
-            Undergraduate student in Computer Science and Engineering at the University of Moratuwa, interested in software and web application development. Eager to learn new technologies and improve through hands-on experience and collaboration. 
-        \end{onecolentry}
-
-
-
-          \section{Education}
-
-
-
-        
-        \begin{twocolentry}{
-            May 2024 – Present
-        }
-            \textbf{University of Moratuwa}, BSc Eng Hons, Computer Science \& Engineering
-
-            
-         
-        \end{twocolentry}
-
-
-
-   \vspace{0.2 cm}
-        \begin{twocolentry}{
-            Until 2022
-        }
-            \textbf{Ibbagamuwa Central College }
-
-    \begin{highlights}
-                
-    \item G.C.E. A / L 2022: 3A passes (physical science stream)  \begin{itemize}
-        \item Z-Score - +2.6578
-        \item District Rank - 10
-        \item Island Rank - 105
-    \end{itemize}
-    
-       \item G.C.E. O/L 2018: 8A Passes and 1B
-     \item Grade 5 Scholarship Examination – Passed with 171 marks
-    \end{highlights} 
-    \end{twocolentry}
-    
-    \section{ Certificates \& Achievements }
-   
- \begin{onecolentry}
-  
-   \begin{highlightsforbulletentries}
-    \item \textbf{Python Programming Course (UoM – Open Learning Platform)}
-    \begin{itemize}
-        \item Learned Python basics, control structures, and functions.
-        \item Built small practical programs and solved coding problems.
-        \item Gained hands-on experience with file handling and error management.
-    \end{itemize}
-
-    \item \textbf{Web Design for Beginners (UoM – Open Learning Platform)}
-    \begin{itemize}
-        \item Gained foundational knowledge of HTML and CSS.
-        \item Designed basic web pages with responsive layouts.
-        \item Learned about page structure, styling, and accessibility.
-    \end{itemize}
-\end{highlightsforbulletentries}
-
-\end{onecolentry}
-   
-
-    
-    \section{ Projects}
-
-
-
-        
-\begin{twocolentry}{
-    \href{https://github.com/NipunSGeeTH/LAN-File-Transfer}{LAN-File-Transfer}
-}
-    \textbf{LAN File Transfer Application}
-    \begin{highlights}
-        \item Seamless file sharing across any devices via a web browser.
-        \item Built using Python and Flask for lightweight local hosting.
-       \item User-friendly interface with features like file upload, delete, download, and simultaneous multi-device support.
-       
-
-    \end{highlights}
-\end{twocolentry}
-
-
-
-        \vspace{0.2 cm}
-
-
-
-
-
-\begin{twocolentry}{
-    \href{https://whatinsideits.web.app}{Birthday Surprise for your friend}
-}
-    \textbf{Birthday Surprise Web Page}
-    \begin{highlights}
-        \item Interactive birthday surprise mimicking iPhone 14 Pro interface.
-        \item Built using HTML, CSS, and JavaScript with animations, messages, and fireworks.
-        \item Allows users to generate custom links with personalized messages.
-        
-        \item Live demos available at multiple deployed links.
-    \end{highlights}
-\end{twocolentry}
-
-
-
-  \vspace{0.2 cm}
-
-
-
-\begin{twocolentry}{
-    \href{https://github.com/NipunSGeeTH/Hiru-News-Live-Update-Telegram-Bot}{Hiru News Live Update Telegram Bot}
-}
-    \textbf{Hiru News Live Update Telegram Bot}
-    \begin{highlights}
-        \item Python-based Telegram bot that sends live news updates from the Hiru News website. Can be added to groups or used in private chats.
-        \item Developed using beautifulsoup4 for web scraping, with requests, Python Telegram Bot, and JSON for API handling and data storage.
-        \item Includes automatic image processing with watermarking using the Pillow library.
-    \end{highlights}
-\end{twocolentry}
-
-
-
-
-        \vspace{0.2 cm}
-
-
-\begin{twocolentry}{
-    \href{https://github.com/NipunSGeeTH/LAN-Messenger}{LAN Messenger }
-}
-    \textbf{LAN Messenger for Local Network Devices}
-    \begin{highlights}
-        \item Seamless real-time chat application accessible across any device via a web browser.
-        \item Built using Python, Flask, and sockets for efficient local hosting and communication.
-        \item User-friendly interface with features like system join notifications and support for multiple devices simultaneously.
-    \end{highlights}
-\end{twocolentry}
-
-
-
-
-        \vspace{0.2 cm}
-
-\begin{twocolentry}{
-    \href{https://github.com/NipunSGeeTH/mora9s-hockey-tournament}{Mora9 Hockey Event – Points Table}
-}
-    \textbf{Mora9 Hockey Event – Points Table Web Application}
-    \begin{highlights}
-        \item A web application showcasing the points table of the Mora9 hockey tournament (Boys' and Girls' Interuniversity) organized by the University of Moratuwa.
-        \item Dynamically displays match results and calculates points automatically from an uploaded Excel file (.xlsx).
-        \item Fully web-based with a clean user interface and mobile-responsive design.
-    \end{highlights}
-\end{twocolentry}
-
-     \vspace{0.2 cm}
-
-
-
-        \vspace{0.2 cm}
-
-\begin{twocolentry}{
-    \href{https://github.com/NipunSGeeTH/Telegram-chat-bot-Powerd-by-Gemini}{Gemini-powered Telegram Bot}
-}
-    \textbf{Telegram Chat Bot Powered by Gemini}
-    \begin{highlights}
-        \item Developed using Python 3.7 and integrated with Google's Gemini API.
-        \item Capable of having friendly and natural conversations and mimicking human-like interaction.
-    \end{highlights}
-\end{twocolentry}
-
-
-        \vspace{0.2 cm}
-
-\begin{twocolentry}{
-    \href{https://github.com/NipunSGeeTH/Telegram-file-to-link-generator-bot}{File to Link Generator Bot}
-}
-    \textbf{File to Link Generator Bot}
-    \begin{highlights}
-        \item Telegram bot that generates direct download, stream, and shareable links from uploaded files.
-        \item Built with JavaScript and deployed using Cloudflare Workers.
-    \end{highlights}
-\end{twocolentry}
-
-
-             \vspace{0.2 cm}
-
-\begin{twocolentry}{
-    \href{https://github.com/NipunSGeeTH/FidoraGraphics}{FidoraGraphics Web Design}
-}
-    \textbf{FidoraGraphics Web Design}
-    \begin{highlights}
-        \item Built using HTML, CSS, and JavaScript.
-        \item Fully mobile responsive with smooth animations and interactive user interface.
-    \end{highlights}
-\end{twocolentry}
-
-    
-    \vspace{0.2 cm}
-
-
-    
-    \section{Extra-Curricular Activities }
-
-
-
-        
-        \begin{onecolentry}{
-            
-        }
-           
-            \begin{highlights}
-                \item Member of SEDS Mora Club
-                \item Member MoraSpirit club - University of Moratuwa
-                \item Member of IEEE branch of UOM
-                \item Member of Mathematics socity of UOM
-                
-            \end{highlights}
-        \end{onecolentry}
-
-
-        \vspace{0.2 cm}
-
-       
-
-
-
-    
-    \section{Technologies}
+	\newcommand{\AND}{\unskip
+		\cleaders\copy\ANDbox\hskip\wd\ANDbox
+		\ignorespaces
+	}
+	\newsavebox\ANDbox
+	\sbox\ANDbox{}
+	
+	\placelastupdatedtext
+	\begin{header}
+		\fontsize{30 pt}{30 pt}
+		\textbf{Sangeeth Kariyapperuma}
+		
+		\vspace{0.3 cm}
+		
+		\normalsize
+		\mbox{{\footnotesize\faMapMarker*}\hspace*{0.13cm} Sri Lanka}%
+		\kern 0.25 cm%
+		\AND%
+		\kern 0.25 cm%
+		\mbox{\hrefWithoutArrow{mailto:sangeethk.23@cse.mrt.ac.lk}{{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}sangeethk.23@cse.mrt.ac.lk}}%
+		\kern 0.25 cm%
+		\AND%
+		\kern 0.25 cm%
+		\mbox{\hrefWithoutArrow{tel:+94760858499}{{\footnotesize\faPhone*}\hspace*{0.13cm}+94 76 085 8499}}%
+		\kern 0.25 cm%
+		\AND%
+		\kern 0.25 cm%
+		\mbox{\hrefWithoutArrow{https://sangeethnipun.web.app/}{{\footnotesize\faLink}\hspace*{0.13cm}sangeethnipun.web.app}}%
+		\kern 0.25 cm%
+		\AND%
+		\kern 0.25 cm%
+		\mbox{\hrefWithoutArrow{https://linkedin.com/in/nipunsgeeth}{{\footnotesize\faLinkedinIn}\hspace*{0.13cm}nipunsgeeth}}%
+		\kern 0.25 cm%
+		\AND%
+		\kern 0.25 cm%
+		\mbox{\hrefWithoutArrow{https://github.com/nipunsgeeth}{{\footnotesize\faGithub}\hspace*{0.13cm}nipunsgeeth}}%
+	\end{header}
+	
+	\vspace{0.3 cm - 0.3 cm}
+	
+	
+	\section{About Me}
+	
+	
+	
+	
+	\begin{onecolentry}
+		Undergraduate student in Computer Science and Engineering at the University of Moratuwa, interested in software and web application development. Eager to learn new technologies and improve through hands-on experience and collaboration. 
+	\end{onecolentry}
+	
+	
+	
+	\section{Education}
+	
+	
+	
+	
+	\begin{twocolentry}{
+			May 2024 – Present
+		}
+		\textbf{University of Moratuwa}, BSc Eng Hons, Computer Science \& Engineering
+		
+		
+		
+	\end{twocolentry}
+	
+	
+	
+	\vspace{0.2 cm}
+	\begin{twocolentry}{
+			Until 2022
+		}
+		\textbf{Ibbagamuwa Central College }
+		
+		\begin{highlights}
+			
+			\item G.C.E. A / L 2022: 3A passes (physical science stream)  \begin{itemize}
+				\item Z-Score - +2.6578
+				\item District Rank - 10
+				\item Island Rank - 105
+			\end{itemize}
+			
+			\item G.C.E. O/L 2018: 8A Passes and 1B
+			\item Grade 5 Scholarship Examination – Passed with 171 marks
+		\end{highlights} 
+	\end{twocolentry}
+	
+	
+\section{Awards \& Competitions}
 
 \begin{onecolentry}
-    \textbf{Programming Languages:} Kotlin, C++, C, Java, Python, SQL, JavaScript
-\end{onecolentry}
-
-\vspace{0.2 cm}
-
-\begin{onecolentry}
-    \textbf{Frontend:} HTML, CSS, Tailwind CSS, React.js, Bootstrap
-\end{onecolentry}
-\vspace{0.2 cm}
-\begin{onecolentry}
-    \textbf{Back-end / Database:} Node.js, Express.js, Python,MongoDB, MySQL, Firebase,PostgraSQL, 
-\end{onecolentry}
-\vspace{0.2 cm}
-\begin{onecolentry}
-    \textbf{DevOps / OS:} Git, GitHub, Cloudflare Workers, Linux, Windows
-\end{onecolentry}
-\vspace{0.2 cm}
-\begin{onecolentry}
-    \textbf{Other Tools:} VS Code, Figma, Postman, Canva,  Adobe After Effects, Adobe Photoshop,Adobe Premire Pro,
+	
+	\begin{highlightsforbulletentries}
+		
+		\item \textbf{Mobitel CodeBlast Hackathon Challenge (Inter-University Competition)} \hfill \textit{Sep 2025}
+		\begin{itemize}
+			\item Participated as part of \textbf{Team X} with two teammates.
+			\item Developed an AI-powered educational platform named \textbf{Pahasara.lk}, connecting students and tutors through intelligent learning features.
+			\item \textbf{Secured 1st Place} among university teams across Sri Lanka.
+			\item The competition was held in collaboration with the \textbf{National AI Expo 2025}, organized by the \textbf{Ministry of Digital Economy}.
+			\item Recognized for innovation, usability, and real-world educational impact.
+		\end{itemize}
+		
+	\end{highlightsforbulletentries}
+	
 \end{onecolentry}
 
 
 
 
+	
+	
+	\section{ Certificates \& Achievements }
+	
+	\begin{onecolentry}
+		
+		\begin{highlightsforbulletentries}
+			\item \textbf{Python Programming Course (UoM – Open Learning Platform)}
+			\begin{itemize}
+				\item Learned Python basics, control structures, and functions.
+				\item Built small practical programs and solved coding problems.
+				\item Gained hands-on experience with file handling and error management.
+			\end{itemize}
+			
+			\item \textbf{Web Design for Beginners (UoM – Open Learning Platform)}
+			\begin{itemize}
+				\item Gained foundational knowledge of HTML and CSS.
+				\item Designed basic web pages with responsive layouts.
+				\item Learned about page structure, styling, and accessibility.
+			\end{itemize}
+		\end{highlightsforbulletentries}
+		
+	\end{onecolentry}
+	
+	
+	
+	\section{ Projects}
+	
+	
+	
+	
+	\begin{twocolentry}{
+			\href{https://github.com/NipunSGeeTH/LAN-File-Transfer}{LAN-File-Transfer}
+		}
+		\textbf{LAN File Transfer Application}
+		\begin{highlights}
+			\item Seamless file sharing across any devices via a web browser.
+			\item Built using Python and Flask for lightweight local hosting.
+			\item User-friendly interface with features like file upload, delete, download, and simultaneous multi-device support.
+			
+			
+		\end{highlights}
+	\end{twocolentry}
+	
+	
+	
+	\vspace{0.2 cm}
+	
+	
+	
+	
+	
+	\begin{twocolentry}{
+			\href{https://whatinsideits.web.app}{Birthday Surprise for your friend}
+		}
+		\textbf{Birthday Surprise Web Page}
+		\begin{highlights}
+			\item Interactive birthday surprise mimicking iPhone 14 Pro interface.
+			\item Built using HTML, CSS, and JavaScript with animations, messages, and fireworks.
+			\item Allows users to generate custom links with personalized messages.
+			
+			\item Live demos available at multiple deployed links.
+		\end{highlights}
+	\end{twocolentry}
+	
+	
+	
+	\vspace{0.2 cm}
+	
+	
+	
+	
+	
+	
+\begin{twocolentry}{
+		\href{https://github.com/NipunSGeeTH/Vector-db-rag}{AI with Vector Database}
+	}
+	\textbf{AI with Vector Database}
+	\begin{highlights}
+		\item Q\&A system using \textbf{FAISS} vector database and \textbf{Google Generative AI (Gemini)} to answer biology questions in Sinhala.
+		\item Focused on biology content with context-aware answers.
+		\item Implemented in Python with AI and vector search integration.
+		\item Simple setup and usage; supports Sinhala language queries.
+	\end{highlights}
+\end{twocolentry}
 
-        \section{Personal Information }
-
-\begin{highlights}
-    \item \textbf{Name:} K.M. Nipun Sangeeth Kariyapperuma
-    \item \textbf{Citizenship:} Sri Lankan
-    \item \textbf{Communication Proficiency:}
-    \begin{itemize}
-        \item English (excellent fluency)
-        \item Sinhala (excellent fluency)
-    \end{itemize}
-\end{highlights}
-
-        
-
-
+	
+	
+	
+	\vspace{0.2 cm}
+	\begin{twocolentry}{
+			\href{https://github.com/NipunSGeeTH/Hiru-News-Live-Update-Telegram-Bot}{Hiru News Live Update Telegram Bot}
+		}
+		\textbf{Hiru News Live Update Telegram Bot}
+		\begin{highlights}
+			\item Python-based Telegram bot that sends live news updates from the Hiru News website. Can be added to groups or used in private chats.
+			\item Developed using beautifulsoup4 for web scraping, with requests, Python Telegram Bot, and JSON for API handling and data storage.
+			\item Includes automatic image processing with watermarking using the Pillow library.
+		\end{highlights}
+	\end{twocolentry}
+	
+	
+	
+	
+	\vspace{0.2 cm}
+	
+	
+	\begin{twocolentry}{
+			\href{https://github.com/NipunSGeeTH/LAN-Messenger}{LAN Messenger }
+		}
+		\textbf{LAN Messenger for Local Network Devices}
+		\begin{highlights}
+			\item Seamless real-time chat application accessible across any device via a web browser.
+			\item Built using Python, Flask, and sockets for efficient local hosting and communication.
+			\item User-friendly interface with features like system join notifications and support for multiple devices simultaneously.
+		\end{highlights}
+	\end{twocolentry}
+	
+	
+	
+	
+	\vspace{0.2 cm}
+	
+	\begin{twocolentry}{
+			\href{https://github.com/NipunSGeeTH/mora9s-hockey-tournament}{Mora9 Hockey Event – Points Table}
+		}
+		\textbf{Mora9 Hockey Event – Points Table Web Application}
+		\begin{highlights}
+			\item A web application showcasing the points table of the Mora9 hockey tournament (Boys' and Girls' Interuniversity) organized by the University of Moratuwa.
+			\item Dynamically displays match results and calculates points automatically from an uploaded Excel file (.xlsx).
+			\item Fully web-based with a clean user interface and mobile-responsive design.
+		\end{highlights}
+	\end{twocolentry}
+	
+	\vspace{0.2 cm}
+	
+	
+	
+	\vspace{0.2 cm}
+	
+	\begin{twocolentry}{
+			\href{https://github.com/NipunSGeeTH/Telegram-chat-bot-Powerd-by-Gemini}{Gemini-powered Telegram Bot}
+		}
+		\textbf{Telegram Chat Bot Powered by Gemini}
+		\begin{highlights}
+			\item Developed using Python 3.7 and integrated with Google's Gemini API.
+			\item Capable of having friendly and natural conversations and mimicking human-like interaction.
+		\end{highlights}
+	\end{twocolentry}
+	
+	
+	\vspace{0.2 cm}
+	
+	\begin{twocolentry}{
+			\href{https://github.com/NipunSGeeTH/Telegram-file-to-link-generator-bot}{File to Link Generator Bot}
+		}
+		\textbf{File to Link Generator Bot}
+		\begin{highlights}
+			\item Telegram bot that generates direct download, stream, and shareable links from uploaded files.
+			\item Built with JavaScript and deployed using Cloudflare Workers.
+		\end{highlights}
+	\end{twocolentry}
+	
+	
+	\vspace{0.2 cm}
+	
+	\begin{twocolentry}{
+			\href{https://github.com/NipunSGeeTH/FidoraGraphics}{FidoraGraphics Web Design}
+		}
+		\textbf{FidoraGraphics Web Design}
+		\begin{highlights}
+			\item Built using HTML, CSS, and JavaScript.
+			\item Fully mobile responsive with smooth animations and interactive user interface.
+		\end{highlights}
+	\end{twocolentry}
+	
+	
+	\vspace{0.2 cm}
+	
+	
+	
+	\section{Extra-Curricular Activities }
+	
+	
+	
+	
+	\begin{onecolentry}{
+			
+		}
+		
+		\begin{highlights}
+			\item Member of SEDS Mora Club
+			\item Member MoraSpirit Club in Web Piller 
+			\item Member of IEEE branch of UOM
+			\item Member of Mathematics socity of UOM
+			
+		\end{highlights}
+	\end{onecolentry}
+	
+	
+	\vspace{0.2 cm}
+	
+	
+	
+	
+	
+	
+	\section{Technologies}
+	
+	\begin{onecolentry}
+		\textbf{Programming Languages:} Kotlin, C++, C, Java, Python, SQL, JavaScript
+	\end{onecolentry}
+	
+	\vspace{0.2 cm}
+	
+	\begin{onecolentry}
+		\textbf{Frontend:} HTML, CSS, Tailwind CSS, React.js, Bootstrap
+	\end{onecolentry}
+	\vspace{0.2 cm}
+	\begin{onecolentry}
+		\textbf{Back-end / Database:} Node.js, Express.js, Python,MongoDB, MySQL, Firebase,PostgraSQL, 
+	\end{onecolentry}
+	\vspace{0.2 cm}
+	\begin{onecolentry}
+		\textbf{DevOps / OS:} Git, GitHub, Cloudflare Workers, Linux, Windows
+	\end{onecolentry}
+	\vspace{0.2 cm}
+	\begin{onecolentry}
+		\textbf{Other Tools:} VS Code, Figma, Postman, Canva,  Adobe After Effects, Adobe Photoshop,Adobe Premire Pro,
+	\end{onecolentry}
+	
+	
+	
+	
+	
+	\section{Personal Information }
+	
+	\begin{highlights}
+		\item \textbf{Name:} K.M. Nipun Sangeeth Kariyapperuma
+		\item \textbf{Citizenship:} Sri Lankan
+		\item \textbf{Communication Proficiency:}
+		\begin{itemize}
+			\item English (excellent fluency)
+			\item Sinhala (excellent fluency)
+		\end{itemize}
+	\end{highlights}
+	
+	
+	
+	
 \end{document}
