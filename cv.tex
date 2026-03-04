@@ -44,10 +44,11 @@ urlcolor=primaryColor
 \pdfgentounicode=1
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{lmodern}
 \fi
 
-\usepackage[default, type1]{sourcesanspro} 
+% Professional font: Lato (clean, modern, widely used in top CVs)
+\usepackage[default]{lato}
+\usepackage[protrusion=true, expansion=true, tracking=true]{microtype} % improved text rendering
 
 % Some settings:
 \AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
@@ -82,14 +83,15 @@ urlcolor=primaryColor
 	-1pt
 }{
 	% top space:
-	0.3 cm
+	0.4 cm
 }{
 	% bottom space:
-	0.2 cm
+	0.3 cm
 } % section title spacing
 
 % \renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} % custom bullet points
 \newenvironment{highlights}{
+	\vspace{0.05 cm}
 	\begin{itemize}[
 		topsep=0.10 cm,
 		parsep=0.10 cm,
@@ -241,7 +243,7 @@ urlcolor=primaryColor
 	
 	
 	
-	\vspace{0.2 cm}
+	\vspace{0.25 cm}
 	\begin{twocolentry}{
 			Until 2022
 		}
@@ -259,34 +261,92 @@ urlcolor=primaryColor
 			\item Grade 5 Scholarship Examination – Passed with 171 marks
 		\end{highlights} 
 	\end{twocolentry}
-	
-	
+
+
+\section{Experience \& Leadership}
+
+\begin{onecolentry}
+	\textbf{IEEE Student Branch, University of Moratuwa} \hfill \textit{May 2025 – Present}
+\end{onecolentry}
+\begin{onecolentry}
+	\begin{highlights}
+		\item \textbf{Web Development Committee Member (MoraXtreme 10.0):} Leading the development of web platforms for the competition.
+		\item \textbf{Publicity Committee Member (FINNC 2025):} Contributed to the publicity campaign for the Future Innovators Challenge (Mar 2025 – Aug 2025).
+	\end{highlights}
+\end{onecolentry}
+
+\vspace{0.25 cm}
+
+\begin{onecolentry}
+	\textbf{Web Development Committee Member, Mathematics Society UoM} \hfill \textit{July 2025 – Oct 2025}
+\end{onecolentry}
+\begin{onecolentry}
+	\begin{highlights}
+		\item Contributed to the web development efforts for Enigma 2025.
+	\end{highlights}
+\end{onecolentry}
+
+\vspace{0.25 cm}
+
+\begin{onecolentry}
+	\textbf{SEDS Mora Club, University of Moratuwa}
+\end{onecolentry}
+\begin{onecolentry}
+	\begin{highlights}
+		\item Contributed to the \textbf{SEDS Membership Portal} — a web platform for managing club memberships and member data.
+	\end{highlights}
+\end{onecolentry}
+
+\vspace{0.25 cm}
+
+\begin{onecolentry}
+	\textbf{MoraSpirit Club – Web Pillar, University of Moratuwa} \hfill \textit{2025 – Present}
+\end{onecolentry}
+\begin{onecolentry}
+	\begin{highlights}
+		\item Developed the \textbf{content management platform} and the \textbf{main club website} during 2025–2026.
+		\item Serving as \textbf{Assistant Pillar Head of the Web Pillar} from 2026 – Present, leading web development initiatives for the club.
+	\end{highlights}
+\end{onecolentry}
+
+
 \section{Awards \& Competitions}
 
 \begin{onecolentry}
-	
-	\begin{highlightsforbulletentries}
-		
-		\item \textbf{Mobitel CodeBlast Hackathon Challenge (Inter-University Competition)} \hfill \textit{Sep 2025}
-\begin{itemize}
-	\item Participated as part of Team X with two teammates.
-	\item Developed an AI-powered educational platform named Pahasara.lk, connecting students and tutors through intelligent learning features.
-	\item Recognized as champions among university teams across Sri Lanka.
-	\item The competition was held in collaboration with the National AI Expo 2025, organized by the Ministry of Digital Economy.
-	\item Appreciated for innovation, usability, and real-world educational impact.
-\end{itemize}
+	\textbf{Champions – Mobitel CodeBlast Hackathon (Inter-University)} \hfill \textit{Sep 2025}
+\end{onecolentry}
+\begin{onecolentry}
+	\begin{highlights}
+		\item Competed as part of Team X with two teammates.
+		\item Developed Pahasara.lk, an AI-powered educational platform connecting students and tutors.
+		\item Recognized as champions among university teams across Sri Lanka.
+		\item Held in collaboration with the National AI Expo 2025, organized by the Ministry of Digital Economy.
+	\end{highlights}
+\end{onecolentry}
 
-		
-	\end{highlightsforbulletentries}
+\vspace{0.25 cm}
 
+\begin{onecolentry}
+	\textbf{Champions – AlgoArena 2025 (Mobile App Development Competition)} \hfill \textit{Jan 2026}
+\end{onecolentry}
+\begin{onecolentry}
+	\begin{highlights}
+		\item Organized by the University of Sri Jayewardenepura.
+		\item Developed LeoConnect, a scalable solution connecting 200+ Leo Clubs in Sri Lanka and the Maldives.
+		\item Recognized for successful cross-platform deployment and advanced AI integration.
+	\end{highlights}
+\end{onecolentry}
 
-    \item \textbf{Champion - AlgoArena 2025 (Mobile App Development Competition)} \hfill \textit{Jan 2026}
-\begin{itemize}
-    \item Organized by the University of Sri Jayewardenepura.
-    \item Developed "LeoConnect," a scalable solution connecting 200+ Leo Clubs in Sri Lanka and the Maldives.
-    \item Recognized for successful cross-platform deployment and advanced AI integration.
-\end{itemize}
-	
+\vspace{0.25 cm}
+
+\begin{onecolentry}
+	\textbf{2nd Runner-Up – Codemania V6.0 Grand Finale (IEEE SLTC)} \hfill \textit{2026}
+\end{onecolentry}
+\begin{onecolentry}
+	\begin{highlights}
+		\item Competed as part of Team Nanosphere from University of Moratuwa.
+		\item Recognized for analytical precision, collaborative problem-solving, and translating complex challenges into confident results.
+	\end{highlights}
 \end{onecolentry}
 
 
@@ -319,8 +379,36 @@ urlcolor=primaryColor
 	
 	
 	\section{ Projects}
-	
-	
+
+
+	\begin{onecolentry}
+		\textbf{CareerX – Academic Career Platform} \hfill \hrefWithoutArrow{https://careerx.lk}{careerx.lk} \textit{2026}
+	\end{onecolentry}
+	\begin{onecolentry}
+		\begin{highlights}
+			\item Career development platform connecting students, companies, and researchers built with \textbf{Laravel} and \textbf{Livewire}.
+			\item Multi-guard authentication with role-based access control for students, companies, and administrators.
+			\item Job application tracking with email notifications, bulk CV downloads, and applicant management.
+			\item Multi-step onboarding, CV upload, educational resources, and research collaboration features.
+		\end{highlights}
+	\end{onecolentry}
+
+	\vspace{0.25 cm}
+
+	\begin{onecolentry}
+		\textbf{Halalway – Halal Restaurant Discovery Platform} \hfill \textit{2025 – Present}
+	\end{onecolentry}
+	\begin{onecolentry}
+		\begin{highlights}
+			\item Cross-platform \textbf{Kotlin Multiplatform} app (Android, iOS, Web) for discovering halal restaurants.
+			\item Interactive map interface with radius-based search and location discovery.
+			\item User authentication for community contributions with admin verification workflow.
+			\item Filtering, bookmarks, and review system for comprehensive restaurant information.
+		\end{highlights}
+	\end{onecolentry}
+
+	\vspace{0.25 cm}
+
 	\begin{onecolentry}
     \textbf{LeoConnect – Unified Digital Platform (AlgoArena Champion)} \hfill \hrefWithoutArrow{https://github.com/nipunsgeeth}{LeoConnect (Production)}
 \end{onecolentry}
@@ -333,13 +421,13 @@ urlcolor=primaryColor
     \end{highlights}
 \end{onecolentry}
 
-\vspace{0.2 cm}
+\vspace{0.25 cm}
 
 
 
 
 \begin{onecolentry}
-    \textbf{KuppiHub – Disaster Response Education Platform} \hfill \hrefWithoutArrow{https://edu.kuppihub.org}{KuppiHub Education Platform}
+    \textbf{EduSupport – Disaster Response Education Platform} \hfill \hrefWithoutArrow{https://edu.kuppihub.org}{EduSupport}
 \end{onecolentry}
 \begin{onecolentry}
     \begin{highlights}
@@ -349,7 +437,7 @@ urlcolor=primaryColor
     \end{highlights}
 \end{onecolentry}
 
-\vspace{0.2 cm}
+\vspace{0.25 cm}
 
 \begin{onecolentry}
     \textbf{Smart Banking Management System (Full-Stack)} \hfill \hrefWithoutArrow{https://btrust.dpdns.org}{Smart Banking System}
@@ -362,7 +450,7 @@ urlcolor=primaryColor
     \end{highlights}
 \end{onecolentry}
 
-\vspace{0.2 cm}
+\vspace{0.25 cm}
 	
 	\begin{onecolentry}
 		\textbf{LAN File Transfer Application} \hfill \hrefWithoutArrow{https://github.com/NipunSGeeTH/LAN-File-Transfer}{LAN-File-Transfer}
@@ -405,7 +493,7 @@ urlcolor=primaryColor
 	
 	
 	
-	\vspace{0.2 cm}
+	\vspace{0.25 cm}
 	\begin{onecolentry}
 		\textbf{Hiru News Live Update Telegram Bot} \hfill \hrefWithoutArrow{https://github.com/NipunSGeeTH/Hiru-News-Live-Update-Telegram-Bot}{GitHub}
 	\end{onecolentry}
@@ -420,7 +508,7 @@ urlcolor=primaryColor
 	
 	
 	
-	\vspace{0.2 cm}
+	\vspace{0.25 cm}
 	
 	
 	\begin{onecolentry}
@@ -437,7 +525,7 @@ urlcolor=primaryColor
 	
 	
 	
-	\vspace{0.2 cm}
+	\vspace{0.25 cm}
 	
 	\begin{onecolentry}
 		\textbf{Mora9 Hockey Event – Points Table Web Application} \hfill \hrefWithoutArrow{https://github.com/NipunSGeeTH/mora9s-hockey-tournament}{GitHub}
@@ -450,11 +538,7 @@ urlcolor=primaryColor
 		\end{highlights}
 	\end{onecolentry}
 	
-	\vspace{0.2 cm}
-	
-	
-	
-	\vspace{0.2 cm}
+	\vspace{0.25 cm}
 	
 	\begin{onecolentry}
 		\textbf{Telegram Chat Bot Powered by Gemini} \hfill \hrefWithoutArrow{https://github.com/NipunSGeeTH/Telegram-chat-bot-Powerd-by-Gemini}{GitHub}
@@ -467,7 +551,7 @@ urlcolor=primaryColor
 	\end{onecolentry}
 	
 	
-	\vspace{0.2 cm}
+	\vspace{0.25 cm}
 	
 	\begin{onecolentry}
 		\textbf{File to Link Generator Bot} \hfill \hrefWithoutArrow{https://github.com/NipunSGeeTH/Telegram-file-to-link-generator-bot}{GitHub}
@@ -480,7 +564,7 @@ urlcolor=primaryColor
 	\end{onecolentry}
 	
 	
-	\vspace{0.2 cm}
+	\vspace{0.25 cm}
 	
 	\begin{onecolentry}
 		\textbf{FidoraGraphics Web Design} \hfill \hrefWithoutArrow{https://github.com/NipunSGeeTH/FidoraGraphics}{GitHub}
@@ -493,30 +577,7 @@ urlcolor=primaryColor
 	\end{onecolentry}
 	
 	
-	\vspace{0.2 cm}
-	
-	
-	
-	\section{Extra-Curricular Activities }
-	
-	
-	
-	
-	\begin{onecolentry}{
-			
-		}
-		
-		\begin{highlights}
-			\item Member of SEDS Mora Club
-			\item Member MoraSpirit Club in Web Piller 
-			\item Member of IEEE branch of UOM
-			\item Member of Mathematics socity of UOM
-			
-		\end{highlights}
-	\end{onecolentry}
-	
-	
-	\vspace{0.2 cm}
+	\vspace{0.25 cm}
 	
 	
 	
@@ -529,20 +590,20 @@ urlcolor=primaryColor
 		\textbf{Programming Languages:} Kotlin, C++, C, Java, Python, SQL, JavaScript
 	\end{onecolentry}
 	
-	\vspace{0.2 cm}
+	\vspace{0.25 cm}
 	
 	\begin{onecolentry}
 		\textbf{Frontend:} HTML, CSS, Tailwind CSS, React.js, Bootstrap
 	\end{onecolentry}
-	\vspace{0.2 cm}
+	\vspace{0.25 cm}
 	\begin{onecolentry}
 		\textbf{Backend / Database:} Python (FastAPI), Node.js, PostgreSQL, MySQL, MongoDB, Firebase
 	\end{onecolentry}
-	\vspace{0.2 cm}
+	\vspace{0.25 cm}
 	\begin{onecolentry}
 		\textbf{DevOps / Cloud:} AWS (EC2), Cloudflare, Git, GitHub, Linux, Docker
 	\end{onecolentry}
-	\vspace{0.2 cm}
+	\vspace{0.25 cm}
 	\begin{onecolentry}
 		\textbf{Other Tools:} VS Code, Figma, Postman, Canva,  Adobe After Effects, Adobe Photoshop,Adobe Premire Pro,
 	\end{onecolentry}
