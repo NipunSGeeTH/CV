@@ -1,10 +1,159 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Redirecting to PDF</title>
-    <meta http-equiv="refresh" content="0; url=cv.pdf">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sangeeth Kariyapperuma | CV</title>
+  <meta name="description" content="Professional CV page for Sangeeth Kariyapperuma.">
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const autoLink = document.getElementById("auto-download-link");
+      if (autoLink) {
+        autoLink.click();
+      }
+    });
+  </script>
+  <style>
+    :root {
+      --bg: #f3f5f9;
+      --panel: #ffffff;
+      --text: #101828;
+      --muted: #475467;
+      --primary: #0b4f8a;
+      --primary-strong: #083a66;
+      --border: #d0d5dd;
+      --ring: rgba(11, 79, 138, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at top right, #e8f0fb 0%, var(--bg) 45%, #eef2f7 100%);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: min(680px, 100%);
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 14px 30px rgba(16, 24, 40, 0.08);
+      padding: 32px;
+    }
+
+    .label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: #e7f1fb;
+      border-radius: 999px;
+      padding: 6px 10px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.6rem, 4vw, 2rem);
+      line-height: 1.2;
+    }
+
+    p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 56ch;
+    }
+
+    .actions {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      border: 1px solid transparent;
+      border-radius: 10px;
+      padding: 12px 18px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn:focus-visible {
+      outline: 3px solid var(--ring);
+      outline-offset: 2px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-strong);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: #98a2b3;
+      background: #f9fafb;
+    }
+
+    .hint {
+      margin-top: 16px;
+      font-size: 13px;
+      color: #667085;
+    }
+
+    @media (max-width: 520px) {
+      .card {
+        padding: 24px;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
-    <p>You will be automatically redirected to the PDF file. If not, <a href="cv.pdf">click here</a>.</p>
+  <main class="card">
+    <span class="label">Curriculum Vitae</span>
+    <h1>Sangeeth Kariyapperuma</h1>
+    <p>
+      Welcome to my professional CV page. You can view the latest version online
+      or download a PDF copy directly.
+    </p>
+
+    <div class="actions">
+      <a id="auto-download-link" href="cv.pdf" download hidden aria-hidden="true" tabindex="-1">Auto Download</a>
+      <a class="btn btn-primary" href="cv.pdf" target="_blank" rel="noopener">View CV</a>
+      <a class="btn btn-secondary" href="cv.pdf" download>Download CV (PDF)</a>
+    </div>
+
+    <p class="hint">If the download does not start, use the “View CV” button and save from your browser.</p>
+  </main>
 </body>
 </html>
