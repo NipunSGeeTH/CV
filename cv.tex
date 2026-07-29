@@ -3,8 +3,8 @@
 % Packages:
 \usepackage[
 ignoreheadfoot, % set margins without considering header and footer
-top=2 cm, % seperation between body and page edge from the top
-bottom=2 cm, % seperation between body and page edge from the bottom
+top=1 cm, % seperation between body and page edge from the top
+bottom=1.8 cm, % seperation between body and page edge from the bottom
 left=2 cm, % seperation between body and page edge from the left
 right=2 cm, % seperation between body and page edge from the right
 footskip=1.0 cm, % seperation between body and footer
@@ -157,15 +157,14 @@ urlcolor=primaryColor
 
 % Replace the long \placelastupdatedtext command with this simpler one:
 \newcommand{\placelastupdatedtext}{%
-	\AddToShipoutPictureFG*{% Add <stuff> to current page foreground
-		\put(
-		\LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
-		\LenToUnit{\paperheight-1.0 cm}
-		){\vtop{{\null}\makebox[0pt][c]{
-					% This will produce: "Last updated in October 6, 2025"
-					\small\color{gray}\textit{Last updated on \today}\hspace{\widthof{Last updated in August 2025}}
-		}}}%
-	}%
+    \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+        \put(
+        \LenToUnit{\paperwidth - 0.5cm}, % Matches your right margin (adjust if you change the geometry)
+        \LenToUnit{\paperheight - 0.5cm} % Distance from the top edge of the page
+        ){\vtop{{\null}\makebox[0pt][r]{
+            \small\color{gray}\textit{Last updated on \today}
+        }}}%
+    }%
 }
 % save the original href command in a new command:
 \let\hrefWithoutArrow\href
@@ -194,7 +193,7 @@ urlcolor=primaryColor
 		\kern 0.25 cm%
 		\AND%
 		\kern 0.25 cm%
-		\mbox{\hrefWithoutArrow{mailto:sangeethk.23@cse.mrt.ac.lk}{{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}sangeethk.23@cse.mrt.ac.lk}}%
+		\mbox{\hrefWithoutArrow{mailto:nipunsgeeth@gmail.com}{{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}nipunsgeeth@gmail.com}}%
 		\kern 0.25 cm%
 		\AND%
 		\kern 0.25 cm%
@@ -222,7 +221,8 @@ urlcolor=primaryColor
 	
 	
 	\begin{onecolentry}
-		Undergraduate student in Computer Science and Engineering at the University of Moratuwa, interested in software and web application development. Eager to learn new technologies and improve through hands-on experience and collaboration. 
+        Undergraduate in Computer Science and Engineering at the University of Moratuwa with experience in software, web, and mobile application development. Passionate about machine learning and artificial intelligence, with a strong interest in building practical, impactful solutions. Eager to learn new technologies, continuously improve technical skills, and grow through hands-on experience and collaboration.
+        
 	\end{onecolentry}
 	
 	
@@ -232,385 +232,249 @@ urlcolor=primaryColor
 	
 	
 	
-	\begin{twocolentry}{
-			May 2024 – Present
-		}
-		\textbf{University of Moratuwa}, BSc Eng Hons, Computer Science \& Engineering
-		
-		
-		
-	\end{twocolentry}
-	
-	
+\begin{twocolentry}{
+    May 2024 – Present
+}
+\textbf{University of Moratuwa}\\
+\hspace*{1.5em}\textbullet\ BSc Eng. Hons. in Computer Science \& Engineering
+\end{twocolentry}
 	
 	\vspace{0.25 cm}
-	\begin{twocolentry}{
-			Until 2022
-		}
-		\textbf{Ibbagamuwa Central College }
-		
-		\begin{highlights}
-			
-			\item G.C.E. A / L 2022: 3A passes (physical science stream)  \begin{itemize}
-				\item Z-Score - +2.6578
-				\item District Rank - 10
-				\item Island Rank - 105
-			\end{itemize}
-			
-			\item G.C.E. O/L 2018: 8A Passes and 1B
-			\item Grade 5 Scholarship Examination – Passed with 171 marks
-		\end{highlights} 
-	\end{twocolentry}
 
+\begin{twocolentry}{
+    Until 2022
+}
+\textbf{Ibbagamuwa Central College}\\
+\hspace*{1.5em}\textbullet\ G.C.E. A/L 2022: 3A passes (Physical Science Stream)\\[0.15cm]
+\hspace*{4.5em}Island Rank: 105 $\cdot$ District Rank: 10 $\cdot$ Z-Score: +2.6578\\[0.10cm]
+\hspace*{1.5em}\textbullet\ G.C.E. O/L 2018: 8A Passes and 1B
+\end{twocolentry}
 
-\section{Experience \& Leadership}
-
-\begin{onecolentry}
-	\textbf{IEEE Student Branch, University of Moratuwa} \hfill \textit{May 2025 – Present}
-\end{onecolentry}
-\begin{onecolentry}
-	\begin{highlights}
-		\item \textbf{Web Development Committee Member (MoraXtreme 10.0):} Leading the development of web platforms for the competition.
-		\item \textbf{Publicity Committee Member (FINNC 2025):} Contributed to the publicity campaign for the Future Innovators Challenge (Mar 2025 – Aug 2025).
-	\end{highlights}
-\end{onecolentry}
-
-\vspace{0.25 cm}
-
-\begin{onecolentry}
-	\textbf{Web Development Committee Member, Mathematics Society UoM} \hfill \textit{July 2025 – Oct 2025}
-\end{onecolentry}
-\begin{onecolentry}
-	\begin{highlights}
-		\item Contributed to the web development efforts for Enigma 2025.
-	\end{highlights}
-\end{onecolentry}
-
-\vspace{0.25 cm}
-
-\begin{onecolentry}
-	\textbf{SEDS Mora Club, University of Moratuwa}
-\end{onecolentry}
-\begin{onecolentry}
-	\begin{highlights}
-		\item Contributed to the \textbf{SEDS Membership Portal} — a web platform for managing club memberships and member data.
-	\end{highlights}
-\end{onecolentry}
-
-\vspace{0.25 cm}
-
-\begin{onecolentry}
-	\textbf{MoraSpirit Club – Web Pillar, University of Moratuwa} \hfill \textit{2025 – Present}
-\end{onecolentry}
-\begin{onecolentry}
-	\begin{highlights}
-		\item Developed the \textbf{content management platform} and the \textbf{main club website} during 2025–2026.
-		\item Serving as \textbf{Assistant Pillar Head of the Web Pillar} from 2026 – Present, leading web development initiatives for the club.
-	\end{highlights}
-\end{onecolentry}
 
 
 \section{Awards \& Competitions}
 
 \begin{onecolentry}
-	\textbf{Champions – Mobitel CodeBlast Hackathon (Inter-University)} \hfill \textit{Sep 2025}
-\end{onecolentry}
-\begin{onecolentry}
-	\begin{highlights}
-		\item Competed as part of Team X with two teammates.
-		\item Developed Pahasara.lk, an AI-powered educational platform connecting students and tutors.
-		\item Recognized as champions among university teams across Sri Lanka.
-		\item Held in collaboration with the National AI Expo 2025, organized by the Ministry of Digital Economy.
-	\end{highlights}
+    \textbf{Champions – Mobitel CodeBlast Hackathon} $|$ \textit{Ministry of Digital Economy} \hfill \textit{Sep 2025}
 \end{onecolentry}
 
-\vspace{0.25 cm}
+
+\vspace{0.10 cm}
 
 \begin{onecolentry}
-	\textbf{Champions – AlgoArena 2025 (Mobile App Development Competition)} \hfill \textit{Jan 2026}
-\end{onecolentry}
-\begin{onecolentry}
-	\begin{highlights}
-		\item Organized by the University of Sri Jayewardenepura.
-		\item Developed LeoConnect, a scalable solution connecting 200+ Leo Clubs in Sri Lanka and the Maldives.
-		\item Recognized for successful cross-platform deployment and advanced AI integration.
-	\end{highlights}
+    \textbf{Champions – AlgoArena 2025} $|$ \textit{Leo Club, Univ. of Sri Jayewardenepura} \hfill \textit{Jan 2026}
 \end{onecolentry}
 
-\vspace{0.25 cm}
+
+\vspace{0.10 cm}
+
 
 \begin{onecolentry}
-	\textbf{2nd Runner-Up – Codemania V6.0 Grand Finale (IEEE SLTC)} \hfill \textit{2026}
+    \textbf{1st Runner-Up – BITCODE V6.0} $|$ \textit{Rajarata University of Sri Lanka} \hfill \textit{2026}
+\end{onecolentry}
+
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \textbf{2nd Runner-Up – Codemania V6.0 Grand Finale} $|$ \textit{IEEE SLTC} \hfill \textit{2026}
+\end{onecolentry}
+
+
+
+\section{Experience \& Leadership}
+
+\begin{onecolentry}
+    \textbf{MoraSpirit Organisation}
 \end{onecolentry}
 \begin{onecolentry}
-	\begin{highlights}
-		\item Competed as part of Team Nanosphere from University of Moratuwa.
-		\item Recognized for analytical precision, collaborative problem-solving, and translating complex challenges into confident results.
-	\end{highlights}
+    \begin{highlights}
+        \item \textbf{Web \& Technology Pillar Head} \hfill \textit{Apr 2026 -- Present}
+        \item \textbf{Web \& Technology Pillar Member} \hfill \textit{Apr 2025 -- Apr 2026}
+        \item \textit{Impact:} Leading a team of 20+ to build, optimize, and maintain the university's premier sports media web platforms.
+    \end{highlights}
 \end{onecolentry}
 
+\begin{onecolentry}
+    \textbf{IEEE Student Branch, UOM} \hfill \textit{Apr 2026 -- Present}
+\end{onecolentry}
+\begin{onecolentry}
+    \begin{highlights}
+        \item \textbf{Web Development Committee Member} (MoraXtreme 10.0)
+        \item \textbf{Publicity Committee Member} (FINNC 2025)
+    \end{highlights}
+\end{onecolentry}
 
+\begin{onecolentry}
+    \textbf{University of Moratuwa Clubs \& Societies}
+\end{onecolentry}
+\begin{onecolentry}
+    \begin{highlights}
+         \item \textbf{IESL RoboGames} $|$ Web Development Committee Member  \hfill \textit{Oct 2025 -- May 2026}
+        \item \textbf{SLIoT} $|$ Technical Committee Member \hfill \textit{Oct 2025 -- May 2026}
+        \item \textbf{SEDS Mora} $|$ Developed the SEDS Mora Membership Portal \hfill \textit{2025 -- 2026}
+        \item \textbf{Mathematics Society } $|$ Developed the Enigma competition website \hfill \textit{Jul 2025 -- Oct 2025}
 
+        
+    \end{highlights}
+\end{onecolentry}
 
-	
 	
 	\section{ Certificates \& Achievements }
 	
 	\begin{onecolentry}
 		
 		\begin{highlightsforbulletentries}
-			\item \textbf{Python Programming Course (UoM – Open Learning Platform)}
-			\begin{itemize}
-				\item Learned Python basics, control structures, and functions.
-				\item Built small practical programs and solved coding problems.
-				\item Gained hands-on experience with file handling and error management.
-			\end{itemize}
+           \item  Certificate – Fundamentals of Accelerated Data Science (NVIDIA)
+			\item {Python Programming Course (UoM – Open Learning Platform)}
+ 
 			
-			\item \textbf{Web Design for Beginners (UoM – Open Learning Platform)}
-			\begin{itemize}
-				\item Gained foundational knowledge of HTML and CSS.
-				\item Designed basic web pages with responsive layouts.
-				\item Learned about page structure, styling, and accessibility.
-			\end{itemize}
+			\item {Web Design for Beginners (UoM – Open Learning Platform)}
+
 		\end{highlightsforbulletentries}
 		
 	\end{onecolentry}
 	
-	
-	
-	\section{ Projects}
 
 
-	\begin{onecolentry}
-		\textbf{Salondora – Salon Management System} \hfill \hrefWithoutArrow{https://salondora.com}{salondora.com}
-	\end{onecolentry}
-	\begin{onecolentry}
-		\begin{highlights}
-			\item Fully featured salon management system for handling appointments, staff, and customer management.
-			\item Contributed to both \textbf{frontend and backend} development of the platform.
-			\item Serving \textbf{500+ users} across \textbf{50+ salons} in active production use.
-			\item Live as a production web application at \textbf{salondora.com} and also available as a \textbf{mobile app on the Google Play Store}.
-		\end{highlights}
-	\end{onecolentry}
+	\section{ Notable Projects}
 
-	\vspace{0.45 cm}
-
-	\begin{onecolentry}
-		\textbf{CareerX – Academic Career Platform} \hfill \hrefWithoutArrow{https://careerx.lk}{careerx.lk} \textit{2026}
-	\end{onecolentry}
-	\begin{onecolentry}
-		\begin{highlights}
-			\item Career development platform connecting students, companies, and researchers built with \textbf{Laravel} and \textbf{Livewire}.
-			\item Multi-guard authentication with role-based access control for students, companies, and administrators.
-			\item Job application tracking with email notifications, bulk CV downloads, and applicant management.
-			\item Multi-step onboarding, CV upload, educational resources, and research collaboration features.
-		\end{highlights}
-	\end{onecolentry}
-
-	\vspace{0.45 cm}
-
-	\begin{onecolentry}
-		\textbf{Halalway – Halal Restaurant Discovery Platform} \hfill \textit{2025 – Present}
-	\end{onecolentry}
-	\begin{onecolentry}
-		\begin{highlights}
-			\item Cross-platform \textbf{Kotlin Multiplatform} app (Android, iOS, Web) for discovering halal restaurants.
-			\item Interactive map interface with radius-based search and location discovery.
-			\item User authentication for community contributions with admin verification workflow.
-			\item Filtering, bookmarks, and review system for comprehensive restaurant information.
-		\end{highlights}
-	\end{onecolentry}
-
-	\vspace{0.45 cm}
-
-	\begin{onecolentry}
-    \textbf{LeoConnect – Unified Digital Platform (AlgoArena Champion)} \hfill \hrefWithoutArrow{https://github.com/nipunsgeeth}{LeoConnect (Production)}
+\begin{onecolentry}
+    \textbf{MoraSpirit Member Portal} $|$ \textit{Node.js, Micro-services,mySQL} \hfill \hrefWithoutArrow{https://app.moraspirit.com}{\faExternalLink*\ app.moraspirit.com}
 \end{onecolentry}
+\vspace{0.10 cm}
 \begin{onecolentry}
     \begin{highlights}
-        \item \textbf{Championship Winning Project:} Emerged as Champions at the Mobile Application Development Competition (AlgoArena 2025) as Team Rexosphere.
-        \item Engineered a production-scale \textbf{Kotlin Multiplatform (KMP)} application deployed to Android, iOS, Desktop, and Web, serving \textbf{4,000+ members} across 12 districts.
-        \item Architected an edge-first serverless backend using \textbf{Cloudflare Workers, D1 (SQL), and R2} to handle social feeds, event RSVPs, and messaging.
-        \item Integrated \textbf{Leo AI} powered by Google Gemini (RAG) to provide context-aware assistance to the community.
+        \item Architected a centralized platform to drive operations and streamline workflows for \textbf{400+ members}.
+        \item Implemented comprehensive modules for task assignment, year planning, seamless onboarding, and custom form generation.
+    \end{highlights}
+\end{onecolentry}
+
+
+\vspace{0.45 cm}
+
+
+\begin{onecolentry}
+    \textbf{Epilogue Runner Game (MoraSpirit)} $|$ \textit{Godot, Go} \hfill \faGithub\ \hrefWithoutArrow{https://github.com/moraspirit/Godot-Runner-Game}{GitHub} $|$ \hrefWithoutArrow{https://run.moraspirit.com}{\faExternalLink*\ run.moraspirit.com}
+\end{onecolentry}
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Developed a browser-based runner game for a university-wide competition, attracting \textbf{600+ registered users} and logging over \textbf{15,000 gameplay records}.
+        \item Engineered a fully secured \textbf{Go} backend to handle real-time high-score tracking and leaderboard management, seamlessly integrated with the \textbf{Godot} client.
     \end{highlights}
 \end{onecolentry}
 
 \vspace{0.45 cm}
 
 \begin{onecolentry}
-    \textbf{EduSupport – Disaster Response Education Platform} \hfill \hrefWithoutArrow{https://edu.kuppihub.org}{EduSupport}
+    \textbf{KuppiHub} $|$ \textit{Next.js, PostgreSQL, KMP, Firebase , MongoDB} \hfill 2024 -- Present $|$ \faGithub\ \hrefWithoutArrow{https://github.com/Kuppihub}{GitHub} $|$ \hrefWithoutArrow{https://kuppihub.org}{\faExternalLink*\ kuppihub.org}
 \end{onecolentry}
+\vspace{0.10 cm}
 \begin{onecolentry}
     \begin{highlights}
-        \item \textbf{Social Impact Initiative:} Launched a centralized educational repository to support students across Sri Lanka who lost study materials during recent floods.
-        \item Solved the problem of scattered information by aggregating notes, Google Drive links, and recorded lessons into one structured, searchable platform.
-        \item Engineered a community-driven interface allowing teachers and volunteers to easily upload and share resources for free.
+        \item Developed a centralized educational platform for the University of Moratuwa to efficiently manage and share peer-learning sessions (Kuppies), short notes, videos, and past papers.
+        \item Streamlined academic resource distribution, successfully serving a growing community of over \textbf{1,000 total users} with \textbf{300+ registered accounts}.
     \end{highlights}
 \end{onecolentry}
-
 \vspace{0.45 cm}
 
 \begin{onecolentry}
-    \textbf{Smart Banking Management System (Full-Stack)} \hfill \hrefWithoutArrow{https://btrust.dpdns.org}{Smart Banking System}
+    \textbf{Leo Connect} $|$ \textit{Kotlin MP, Compose, Workers, D1, Firebase} \hfill 2025 $|$ \faGithub\ \hrefWithoutArrow{https://github.com/Rexosphere/LeoConnect}{GitHub}
 \end{onecolentry}
+\vspace{0.10 cm}
 \begin{onecolentry}
     \begin{highlights}
-        \item Designed a comprehensive banking platform handling withdrawals, deposits, fixed deposits, and agent management.
-        \item Built a robust REST API using \textbf{Python (FastAPI)} backed by \textbf{PostgreSQL} for complex transaction handling and automated reporting.
-        \item Deployed the full application (React Frontend + FastAPI Backend) on \textbf{AWS EC2} for live access.
+        \item Won \textbf{1st Place at AlgoArena 2025} for developing a cross-platform (Android, iOS, Desktop) social application to connect Leo Club members.
     \end{highlights}
 \end{onecolentry}
-
 \vspace{0.45 cm}
 
-	\begin{onecolentry}
-		\textbf{LAN File Transfer Application} \hfill \hrefWithoutArrow{https://github.com/NipunSGeeTH/LAN-File-Transfer}{LAN-File-Transfer}
-	\end{onecolentry}
-	\begin{onecolentry}
-		\begin{highlights}
-			\item Seamless file sharing across any devices via a web browser.
-			\item Built using Python and Flask for lightweight local hosting.
-			\item User-friendly interface with features like file upload, delete, download, and simultaneous multi-device support.
-		\end{highlights}
-	\end{onecolentry}
+\begin{onecolentry}
+    \textbf{CutWire Prism} $|$ \textit{Qt 6, C++, FFmpeg, OpenGL} \hfill \faGithub\ \hrefWithoutArrow{https://github.com/CutWire-Studios/SwitchX}{GitHub}
+\end{onecolentry}
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Built a live media trigger and overlay tool for school events, concerts, and sports, achieving over \textbf{300+ monthly downloads} on Flathub.
+    \end{highlights}
+\end{onecolentry}
+\vspace{0.45 cm}
 
-	\vspace{0.45 cm}
 
 \begin{onecolentry}
-	\textbf{AI with Vector Database} \hfill \hrefWithoutArrow{https://github.com/NipunSGeeTH/Vector-db-rag}{AI with Vector Database}
+    \textbf{Smart Banking Management System} $|$ \textit{React, FastAPI, PostgreSQL, AWS} \hfill 2024 $|$ \faGithub\ \hrefWithoutArrow{https://github.com/Team-SMDRS}{GitHub} $|$ \hrefWithoutArrow{https://btrust.dpdns.org}{\faExternalLink*\ btrust.dpdns.org}
 \end{onecolentry}
+\vspace{0.10 cm}
 \begin{onecolentry}
-	\begin{highlights}
-		\item Q\&A system using FAISS vector database and Google Generative AI (Gemini) to answer biology questions in Sinhala.
-		\item Focused on biology content with context-aware answers.
-		\item Implemented in Python with AI and vector search integration.
-		\item Simple setup and usage; supports Sinhala language queries.
-	\end{highlights}
+    \begin{highlights}
+        \item Developed and deployed a full-stack banking platform on \textbf{AWS} to manage complex transactions, utilizing a robust \textbf{FastAPI} and \textbf{PostgreSQL} REST API for secure processing and automated reporting.
+    \end{highlights}
 \end{onecolentry}
+\vspace{0.45 cm}
 
-	\vspace{0.45 cm}
-	\begin{onecolentry}
-		\textbf{Hiru News Live Update Telegram Bot} \hfill \hrefWithoutArrow{https://github.com/NipunSGeeTH/Hiru-News-Live-Update-Telegram-Bot}{GitHub}
-	\end{onecolentry}
-	\begin{onecolentry}
-		\begin{highlights}
-			\item Python-based Telegram bot that sends live news updates from the Hiru News website. Can be added to groups or used in private chats.
-			\item Developed using beautifulsoup4 for web scraping, with requests, Python Telegram Bot, and JSON for API handling and data storage.
-			\item Includes automatic image processing with watermarking using the Pillow library.
-		\end{highlights}
-	\end{onecolentry}
 
-	\vspace{0.45 cm}
 
-	\begin{onecolentry}
-		\textbf{LAN Messenger for Local Network Devices} \hfill \hrefWithoutArrow{https://github.com/NipunSGeeTH/LAN-Messenger}{LAN Messenger}
-	\end{onecolentry}
-	\begin{onecolentry}
-		\begin{highlights}
-			\item Seamless real-time chat application accessible across any device via a web browser.
-			\item Built using Python, Flask, and sockets for efficient local hosting and communication.
-			\item User-friendly interface with features like system join notifications and support for multiple devices simultaneously.
-		\end{highlights}
-	\end{onecolentry}
 
-	\vspace{0.45 cm}
+\begin{onecolentry}
+    \textbf{Salondora} $|$ \textit{Full-Stack} \hfill 2025 $|$ \hrefWithoutArrow{https://salondora.com}{\faExternalLink*\ salondora.com}
+\end{onecolentry}
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Developed a full-featured web and mobile (Play Store) platform for handling appointments, staff, and customers, currently live in active production.
+    \end{highlights}
+\end{onecolentry}
+\vspace{0.45 cm}
 
-	\begin{onecolentry}
-		\textbf{Mora9 Hockey Event – Points Table Web Application} \hfill \hrefWithoutArrow{https://github.com/NipunSGeeTH/mora9s-hockey-tournament}{GitHub}
-	\end{onecolentry}
-	\begin{onecolentry}
-		\begin{highlights}
-			\item A web application showcasing the points table of the Mora9 hockey tournament (Boys' and Girls' Interuniversity) organized by the University of Moratuwa.
-			\item Dynamically displays match results and calculates points automatically from an uploaded Excel file (.xlsx).
-			\item Fully web-based with a clean user interface and mobile-responsive design.
-		\end{highlights}
-	\end{onecolentry}
 
-	\vspace{0.45 cm}
 
-	\begin{onecolentry}
-		\textbf{Telegram Chat Bot Powered by Gemini} \hfill \hrefWithoutArrow{https://github.com/NipunSGeeTH/Telegram-chat-bot-Powerd-by-Gemini}{GitHub}
-	\end{onecolentry}
-	\begin{onecolentry}
-		\begin{highlights}
-			\item Developed using Python 3.7 and integrated with Google's Gemini API.
-			\item Capable of having friendly and natural conversations and mimicking human-like interaction.
-		\end{highlights}
-	\end{onecolentry}
+\begin{onecolentry}
+    \textbf{Mermaid Retina} $|$ \textit{VS Code Extension} \hfill \hrefWithoutArrow{https://github.com/NipunSGeeTH/Mermaid-Retina}{\faGithub\ GitHub} $|$ \hrefWithoutArrow{https://marketplace.visualstudio.com/items?itemName=NipunSGeeTH.mermaid-retina}{\faExternalLink*\ Marketplace}
+\end{onecolentry}
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Developed a comprehensive Mermaid graph export toolkit (PNG/JPG/PDF/SVG) featuring live side-previews and deep customization, achieving \textbf{1,000+ downloads} across the VS Code Marketplace and OpenVSX.
+    \end{highlights}
+\end{onecolentry}
+\vspace{0.45 cm}
+	
 
-	\vspace{0.45 cm}
+	
+	
+	
 
-	\begin{onecolentry}
-		\textbf{File to Link Generator Bot} \hfill \hrefWithoutArrow{https://github.com/NipunSGeeTH/Telegram-file-to-link-generator-bot}{GitHub}
-	\end{onecolentry}
-	\begin{onecolentry}
-		\begin{highlights}
-			\item Telegram bot that generates direct download, stream, and shareable links from uploaded files.
-			\item Built with JavaScript and deployed using Cloudflare Workers.
-		\end{highlights}
-	\end{onecolentry}
+	
+	
+	
+	
+\section{Languages}
 
-	\vspace{0.45 cm}
+\begin{onecolentry}
+    \textbf{English} (Fluent) $|$ \textbf{Sinhala} (Native)
+\end{onecolentry}
+\vspace{0.20 cm}
+	
 
-	\begin{onecolentry}
-		\textbf{FidoraGraphics Web Design} \hfill \hrefWithoutArrow{https://github.com/NipunSGeeTH/FidoraGraphics}{GitHub}
-	\end{onecolentry}
-	\begin{onecolentry}
-		\begin{highlights}
-			\item Built using HTML, CSS, and JavaScript.
-			\item Fully mobile responsive with smooth animations and interactive user interface.
-		\end{highlights}
-	\end{onecolentry}
-	
-	
-	\vspace{0.25 cm}
-	
-	
-	
-	
-	
-	
-	\section{Technologies}
-	
-	\begin{onecolentry}
-		\textbf{Programming Languages:} Kotlin, C++, C, Java, Python, SQL, JavaScript
-	\end{onecolentry}
-	
-	\vspace{0.25 cm}
-	
-	\begin{onecolentry}
-		\textbf{Frontend:} HTML, CSS, Tailwind CSS, React.js, Bootstrap
-	\end{onecolentry}
-	\vspace{0.25 cm}
-	\begin{onecolentry}
-		\textbf{Backend / Database:} Python (FastAPI), Node.js, PostgreSQL, MySQL, MongoDB, Firebase
-	\end{onecolentry}
-	\vspace{0.25 cm}
-	\begin{onecolentry}
-		\textbf{DevOps / Cloud:} AWS (EC2), Cloudflare, Git, GitHub, Linux, Docker
-	\end{onecolentry}
-	\vspace{0.25 cm}
-	\begin{onecolentry}
-		\textbf{Other Tools:} VS Code, Figma, Postman, Canva,  Adobe After Effects, Adobe Photoshop,Adobe Premire Pro,
-	\end{onecolentry}
-	
-	
-	
-	
-	
-	\section{Personal Information }
-	
-	\begin{highlights}
-		\item \textbf{Name:} K.M. Nipun Sangeeth Kariyapperuma
-		\item \textbf{Citizenship:} Sri Lankan
-		\item \textbf{Communication Proficiency:}
-		\begin{itemize}
-			\item English (excellent fluency)
-			\item Sinhala (excellent fluency)
-		\end{itemize}
-	\end{highlights}
-	
-	
-	
+
+    \section*{References}
+
+\begin{onecolentry}
+    \begin{minipage}[t]{0.48\textwidth}
+        \textbf{Prof. D.A. Meedeniya}\\
+        Professor\\
+        Department of Computer Science \& Engineering\\
+        University of Moratuwa\\
+        \href{mailto:dulanim@cse.mrt.ac.lk}{dulanim@cse.mrt.ac.lk}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \textbf{Dr. Adeesha Wijayasiri}\\
+        Senior Lecturer\\
+        Department of Computer Science \& Engineering\\
+        University of Moratuwa\\
+        \href{mailto:adeeshaw@cse.mrt.ac.lk}{adeeshaw@cse.mrt.ac.lk}
+    \end{minipage}
+\end{onecolentry}
+\vspace{0.20 cm}
 	
 \end{document}

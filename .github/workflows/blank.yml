@@ -8,15 +8,20 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v4
+        
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
           root_file: cv.tex
+          # Prevents the action from hanging infinitely if there is a LaTeX error
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+          
       - name: Move PDF to root
         run: |
           mkdir -p public
           mv cv.pdf public/
           cp index.html public/
+          
       - name: Upload PDF artifact
         uses: actions/upload-pages-artifact@v3
         with:
