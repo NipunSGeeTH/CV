@@ -18,7 +18,7 @@ footskip=1.0 cm, % seperation between body and footer
 \usepackage{enumitem} % for customizing lists
 \usepackage{fontawesome5} % for using icons
 \usepackage{amsmath} % for math
-\definecolor{lightblack}{HTML}{444444}
+\definecolor{lightblack}{HTML}{444444} % same black as the body text
 
 \usepackage[
 pdftitle={Sangeeth Kariyapperuma CV},
@@ -26,7 +26,7 @@ pdfauthor={Sangeeth Kariyapperuma},
 pdfcreator={Sangeeth Kariyapperuma},
 colorlinks=true,
 urlcolor=primaryColor
-]{hyperref} % for links, metadata and bookmarks
+]{hyperref} % links stay clickable, drawn in the same black text as the body
 \usepackage[pscoord]{eso-pic} % for floating text on the page
 \usepackage{calc} % for calculating lengths
 \usepackage{bookmark} % for bookmarks
@@ -47,8 +47,7 @@ urlcolor=primaryColor
 \usepackage[utf8]{inputenc}
 \fi
 
-% Professional font: Lato (clean, modern, widely used in top CVs)
-\usepackage[default]{lato}
+% Default LaTeX font for the name, sections, body, and links.
 \usepackage[protrusion=true, expansion=true, tracking=true]{microtype} % improved text rendering
 
 % Some settings:
@@ -69,8 +68,8 @@ urlcolor=primaryColor
 \titleformat{\section}{
 	% avoid page braking right after the section title
 	\needspace{4\baselineskip}
-	% make the font size of the section title large and color it with the primary color
-	\Large\color{primaryColor}
+	% same font as the body, black, one size larger
+	\Large
 }{
 }{
 }{
@@ -153,7 +152,7 @@ urlcolor=primaryColor
 } % new environment for three column entries
 
 \newenvironment{header}{
-	\setlength{\topsep}{0pt}\par\kern\topsep\centering\color{primaryColor}\linespread{1.2}
+	\setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.2}
 }{
 	\par\kern\topsep
 } % new environment for the header
@@ -171,6 +170,7 @@ urlcolor=primaryColor
 }
 % save the original href command in a new command:
 \let\hrefWithoutArrow\href
+\urlstyle{same} % URLs use the body font, not typewriter
 
 % new command for external links:
 \renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
@@ -281,19 +281,17 @@ urlcolor=primaryColor
 
         \vspace{0.3 cm}
 
-        % One size smaller so every contact stays on a single row.
-        \footnotesize
-        \plaincontact{\faMapMarker*}{Sri Lanka}%
+        \normalsize
+        \mbox{\textcolor{primaryColor}{Sri Lanka}}%
         \contactsep
-        \linkedcontact{mailto:nipunsgeeth@gmail.com}{\faEnvelope[regular]}{nipunsgeeth@gmail.com}%
+        \mbox{\hrefWithoutArrow{mailto:nipunsgeeth@gmail.com}{nipunsgeeth@gmail.com}}%
         \contactsep
-        \linkedcontact{tel:+94760858499}{\faPhone*}{+94 76 085 8499}%
+        \mbox{\hrefWithoutArrow{tel:+94760858499}{+94 76 085 8499}}\\[0.18cm]
+        \mbox{\hrefWithoutArrow{https://nipunsgeeth.top/}{https://nipunsgeeth.top/}}%
         \contactsep
-        \linkedcontact{https://nipunsgeeth.top/}{\faLink}{nipunsgeeth.top}%
+        \mbox{\hrefWithoutArrow{https://linkedin.com/in/nipunsgeeth}{https://linkedin.com/in/nipunsgeeth}}%
         \contactsep
-        \linkedcontact{https://linkedin.com/in/nipunsgeeth}{\faLinkedinIn}{nipunsgeeth}%
-        \contactsep
-        \linkedcontact{https://github.com/nipunsgeeth}{\faGithub}{nipunsgeeth}%
+        \mbox{\hrefWithoutArrow{https://github.com/nipunsgeeth}{https://github.com/nipunsgeeth}}%
     \end{header}
 
     \vspace{0.3 cm - 0.3 cm}
