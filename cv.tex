@@ -61,7 +61,7 @@ urlcolor=primaryColor
 \makeatletter
 \let\ps@customFooterStyle\ps@plain % Copy the plain style to customFooterStyle
 \patchcmd{\ps@customFooterStyle}{\thepage}{
-	\color{gray}\textit{\small  Page \thepage{} of \pageref*{LastPage}}
+	\color{lightblack}\textit{\small  Page \thepage{} of \pageref*{LastPage}}
 }{}{} % replace number by desired string
 \makeatother
 
@@ -165,7 +165,7 @@ urlcolor=primaryColor
         \LenToUnit{\paperwidth - 0.5cm}, % Matches your right margin (adjust if you change the geometry)
         \LenToUnit{\paperheight - 0.5cm} % Distance from the top edge of the page
         ){\vtop{{\null}\makebox[0pt][r]{
-            \small\color{gray}\textit{Last updated on \today}
+            \small\color{lightblack}\textit{Last updated on \today}
         }}}%
     }%
 }
@@ -176,350 +176,257 @@ urlcolor=primaryColor
 \renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
 
 
+
+% ---------------------------------------------------------------------------
+% Entry layout. Written once so the body below is only content.
+% \award{title}{host}{date}
+% \role{title}{dates}                         inside experience
+% \activity{group}{contribution}{dates}       inside experience
+% \begin{experience}{organisation}[dates]
+% \begin{project}{name}{stack}[\live{url} | \repo{url} | \repolive{repo}{url}]
+% \skillline{area}{items}
+% \reference{name}{title}{department}{institution}{email}
+% ---------------------------------------------------------------------------
+\newcommand{\AND}{\unskip
+    \cleaders\copy\ANDbox\hskip\wd\ANDbox
+    \ignorespaces
+}
+\newsavebox\ANDbox
+\sbox\ANDbox{}
+
+\newcommand{\contactsep}{%
+    \kern 0.25 cm%
+    \AND%
+    \kern 0.25 cm%
+}
+\newcommand{\plaincontact}[2]{%
+    \mbox{{\footnotesize #1}\hspace*{0.13cm}#2}%
+}
+\newcommand{\linkedcontact}[3]{%
+    \mbox{\hrefWithoutArrow{#1}{{\footnotesize #2}\hspace*{0.13cm}#3}}%
+}
+
+\newcommand{\award}[3]{%
+    \textbf{#1} \textcolor{lightblack}{$|$ #2 $|$ #3}\par\vspace{0.08cm}%
+}
+\newcommand{\role}[2]{\textbf{#1} \textcolor{lightblack}{| #2}}
+\newcommand{\activity}[3]{\textbf{#1} $|$ #2 \textcolor{lightblack}{| #3}}
+
+% Body is collected first so highlights opens and closes in this same block.
+% Splitting \begin{highlights} from \end{highlights} across the environment
+% end-code leaves it unclosed when onecolentry ends.
+\NewDocumentEnvironment{experience}{m O{} +b}{%
+    \begin{onecolentry}
+        \textbf{#1}%
+        \ifthenelse{\equal{#2}{}}{}{\ \textcolor{lightblack}{| #2}}%
+        \begin{highlights}
+            #3
+        \end{highlights}
+    \end{onecolentry}
+}{}
+
+\newcommand{\live}[1]{\hfill\hrefWithoutArrow{#1}{\faExternalLink*}}
+\newcommand{\repo}[1]{\hfill\hrefWithoutArrow{#1}{\faGithub}}
+\newcommand{\repolive}[2]{\hfill\hrefWithoutArrow{#1}{\faGithub} $|$ \hrefWithoutArrow{#2}{\faExternalLink*}}
+
+% Notable Projects spacing. Change these three if a project block feels tight or loose.
+% \projecttopspace     above each project, including under the section title
+% \projectbottomspace  below each project, before the next one
+% \projectlinespace    between the bullet lines inside a project
+\newcommand{\projecttopspace}{0.34cm}
+\newcommand{\projectbottomspace}{0.16cm}
+\newcommand{\projectlinespace}{0.18cm}
+
+\NewDocumentEnvironment{project}{m m O{} +b}{%
+    \needspace{2.8cm}%
+    \vspace{\projecttopspace}%
+    \begin{onecolentry}
+        \textbf{#1} $|$ \textcolor{lightblack}{\textit{#2}}#3\par
+        \vspace{0.12cm}%
+        \begin{itemize}[
+            topsep=0pt,
+            parsep=0pt,
+            partopsep=0pt,
+            itemsep=\projectlinespace,
+            leftmargin=0.4 cm + 10pt
+        ]
+            #4
+        \end{itemize}
+    \end{onecolentry}
+    \vspace{\projectbottomspace}%
+}{}
+
+\newcommand{\skillline}[2]{%
+    \textbf{#1:} #2\par\vspace{0.10cm}%
+}
+
+\newcommand{\reference}[5]{%
+    \begin{minipage}[t]{0.48\textwidth}
+        \textbf{#1}\\
+        #2\\
+        #3\\
+        #4\\
+        \href{mailto:#5}{#5}
+    \end{minipage}%
+}
+
+
 \begin{document}
 \vspace*{1.0cm}
-	\newcommand{\AND}{\unskip
-		\cleaders\copy\ANDbox\hskip\wd\ANDbox
-		\ignorespaces
-	}
-	\newsavebox\ANDbox
-	\sbox\ANDbox{}
-	
-	\placelastupdatedtext
-	\begin{header}
-		\fontsize{25 pt}{20 pt}
-		\textbf{Sangeeth Kariyapperuma}
-		
-		\vspace{0.3 cm}
-		
-		\normalsize
-		\mbox{{\footnotesize\faMapMarker*}\hspace*{0.13cm} Sri Lanka}%
-		\kern 0.25 cm%
-		\AND%
-		\kern 0.25 cm%
-		\mbox{\hrefWithoutArrow{mailto:nipunsgeeth@gmail.com}{{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}nipunsgeeth@gmail.com}}%
-		\kern 0.25 cm%
-		\AND%
-		\kern 0.25 cm%
-		\mbox{\hrefWithoutArrow{tel:+94760858499}{{\footnotesize\faPhone*}\hspace*{0.13cm}+94 76 085 8499}}%
-		\kern 0.25 cm%
-		\AND%
-		\kern 0.25 cm%
-		\mbox{\hrefWithoutArrow{https://nipunsgeeth.top/}{{\footnotesize\faLink}\hspace*{0.13cm}nipunsgeeth.top}}%
-		\kern 0.25 cm%
-		\AND%
-		\kern 0.25 cm%
-		\mbox{\hrefWithoutArrow{https://linkedin.com/in/nipunsgeeth}{{\footnotesize\faLinkedinIn}\hspace*{0.13cm}nipunsgeeth}}%
-		\kern 0.25 cm%
-		\AND%
-		\kern 0.25 cm%
-		\mbox{\hrefWithoutArrow{https://github.com/nipunsgeeth}{{\footnotesize\faGithub}\hspace*{0.13cm}nipunsgeeth}}%
-	\end{header}
-	
-	\vspace{0.3 cm - 0.3 cm}
-	
-	
-	\section{About Me}
-	
-	
-	
-	
-	\begin{onecolentry}
+
+    \placelastupdatedtext
+    \begin{header}
+        \fontsize{25 pt}{20 pt}
+        \textbf{Sangeeth Kariyapperuma}
+
+        \vspace{0.3 cm}
+
+        % One size smaller so every contact stays on a single row.
+        \footnotesize
+        \plaincontact{\faMapMarker*}{Sri Lanka}%
+        \contactsep
+        \linkedcontact{mailto:nipunsgeeth@gmail.com}{\faEnvelope[regular]}{nipunsgeeth@gmail.com}%
+        \contactsep
+        \linkedcontact{tel:+94760858499}{\faPhone*}{+94 76 085 8499}%
+        \contactsep
+        \linkedcontact{https://nipunsgeeth.top/}{\faLink}{nipunsgeeth.top}%
+        \contactsep
+        \linkedcontact{https://linkedin.com/in/nipunsgeeth}{\faLinkedinIn}{nipunsgeeth}%
+        \contactsep
+        \linkedcontact{https://github.com/nipunsgeeth}{\faGithub}{nipunsgeeth}%
+    \end{header}
+
+    \vspace{0.3 cm - 0.3 cm}
+
+    \section{About Me}
+    \begin{onecolentry}
         Undergraduate in Computer Science and Engineering at the University of Moratuwa with experience in software, web, and mobile application development. Passionate about machine learning and artificial intelligence, with a strong interest in building practical, impactful solutions. Eager to learn new technologies, continuously improve technical skills, and grow through hands-on experience and collaboration.
-        
-	\end{onecolentry}
-	
-	
-	
-	\section{Education}
-	
-	
-	
-\begin{twocolentry}{
-    May 2024 -- Present
-}
-\textbf{University of Moratuwa}\\
-\hspace*{1.5em}\textbullet\ BSc Eng. Hons. in Computer Science \& Engineering\
-\end{twocolentry}
-	
-	\vspace{0.25 cm}
+    \end{onecolentry}
 
-\begin{twocolentry}{
-    Until 2022
-}
-\textbf{Ibbagamuwa Central College}\\
-\hspace*{1.5em}\textbullet\ G.C.E. A/L 2022: 3A passes (Physical Science Stream)\\[0.15cm]
-\hspace*{4.5em}Island Rank: 105 $\cdot$ District Rank: 10 $\cdot$ Z-Score: +2.6578\\[0.10cm]
-\hspace*{1.5em}\textbullet\ G.C.E. O/L 2018: 8A Passes and 1B
-\end{twocolentry}
+    \section{Education}
+    \begin{twocolentry}{
+        May 2024 -- Present
+    }
+        \textbf{University of Moratuwa}
+        \begin{highlights}
+            \item BSc Eng. Hons. in Computer Science \& Engineering
+        \end{highlights}
+    \end{twocolentry}
 
+    \vspace{0.25 cm}
 
-\section{Awards \& Competitions}
+    \begin{twocolentry}{
+        Until 2022
+    }
+        \textbf{Ibbagamuwa Central College}
+        \begin{highlights}
+            \item G.C.E. A/L 2022: 3A passes (Physical Science Stream)\\[0.15cm]
+            \hspace*{1.5em}Island Rank: 105 $\cdot$ District Rank: 10 $\cdot$ Z-Score: +2.6578
+            \item G.C.E. O/L 2018: 8A Passes and 1B
+        \end{highlights}
+    \end{twocolentry}
 
-\begin{onecolentry}
-    \textbf{Champions -- Mobitel CodeBlast Hackathon}
-    \textcolor{lightblack}{$|$ Ministry of Digital Economy $|$ Sep 2025}
-\end{onecolentry}
+    \section{Awards \& Competitions}
+    \begin{onecolentry}
+        \award{Champions -- Mobitel CodeBlast Hackathon}{Ministry of Digital Economy}{Sep 2025}
+        \award{Champions -- AlgoArena 2025}{Leo Club, Univ. of Sri Jayewardenepura}{Jan 2026}
+        \award{1st Runner-Up -- BITCODE V6.0}{Rajarata University of Sri Lanka}{2026}
+        \award{1st Runner-Up -- Duothan 6.0}{NSBM Green University}{2026}
+        \award{1st Runner-Up -- Agentrix}{University of Ruhuna}{2026}
+        \award{2nd Runner-Up -- Codemania V6.0}{IEEE SLTC}{2026}
+    \end{onecolentry}
 
-
-
-\begin{onecolentry}
-    \textbf{Champions -- AlgoArena 2025}
-    \textcolor{lightblack}{$|$ Leo Club, Univ. of Sri Jayewardenepura $|$ Jan 2026}
-\end{onecolentry}
-
-
-
-\begin{onecolentry}
-    \textbf{1st Runner-Up -- BITCODE V6.0}
-    \textcolor{lightblack}{$|$ Rajarata University of Sri Lanka $|$ 2026}
-\end{onecolentry}
-
-
-
-\begin{onecolentry}
-    \textbf{1st Runner-Up -- Duothan 6.0}
-    \textcolor{lightblack}{$|$ NSBM Green University $|$ 2026}
-\end{onecolentry}
-
-
-\begin{onecolentry}
-    \textbf{1st Runner-Up -- Agentrix}
-    \textcolor{lightblack}{$|$ University of Ruhuna $|$ 2026}
-\end{onecolentry}
-
-
-\begin{onecolentry}
-    \textbf{2nd Runner-Up -- Codemania V6.0}
-    \textcolor{lightblack}{$|$ IEEE SLTC $|$ 2026}
-\end{onecolentry}
-
-\section{Experience \& Leadership}
-
-\begin{onecolentry}
-    \textbf{MoraSpirit Organisation}
-\end{onecolentry}
-\begin{onecolentry}
-    \begin{highlights}
-        \item \textbf{Web \& Technology Pillar Head}
-        \textcolor{lightblack}{| Apr 2026 -- Present}
-        \item \textbf{Web \& Technology Pillar Member}
-        \textcolor{lightblack}{| Apr 2025 -- Apr 2026}
+    \section{Experience \& Leadership}
+    \begin{experience}{MoraSpirit Organisation}
+        \item \role{Web \& Technology Pillar Head}{Apr 2026 -- Present}
+        \item \role{Web \& Technology Pillar Member}{Apr 2025 -- Apr 2026}
         \item \textit{Impact:} Leading a team of 20+ to build, optimize, and maintain the university's premier sports media web platforms.
-    \end{highlights}
-\end{onecolentry}
+    \end{experience}
 
-\vspace{0.15cm}
+    \vspace{0.15cm}
 
-\begin{onecolentry}
-    \textbf{IEEE Student Branch, UOM}
-    \textcolor{lightblack}{| Apr 2026 -- Present}
-\end{onecolentry}
-\begin{onecolentry}
-    \begin{highlights}
+    \begin{experience}{IEEE Student Branch, UOM}[Apr 2026 -- Present]
         \item \textbf{Web Development Committee Member} (MoraXtreme 10.0)
         \item \textbf{Publicity Committee Member} (FINNC 2025)
-    \end{highlights}
-\end{onecolentry}
+    \end{experience}
 
-\vspace{0.15cm}
+    \vspace{0.15cm}
 
-\begin{onecolentry}
-    \textbf{University of Moratuwa Clubs \& Societies}
-\end{onecolentry}
-\begin{onecolentry}
-    \begin{highlights}
-        \item \textbf{IESL RoboGames} $|$ Web Development Committee Member
-        \textcolor{lightblack}{| Oct 2025 -- May 2026}
+    \begin{experience}{University of Moratuwa Clubs \& Societies}
+        \item \activity{IESL RoboGames}{Web Development Committee Member}{Oct 2025 -- May 2026}
+        \item \activity{SLIoT}{Technical Committee Member}{Oct 2025 -- May 2026}
+        \item \activity{SEDS Mora}{Developed the SEDS Mora Membership Portal}{2025 -- 2026}
+        \item \activity{Mathematics Society}{Developed the Enigma competition website}{Jul 2025 -- Oct 2025}
+    \end{experience}
 
-        \item \textbf{SLIoT} $|$ Technical Committee Member
-        \textcolor{lightblack}{| Oct 2025 -- May 2026}
+    \section{Certificates \& Achievements}
+    \begin{onecolentry}
+        \begin{highlightsforbulletentries}
+            \item AWS Academy Graduate -- Microservices and CI/CD Pipeline Builder (AWS), 2026
+            \item AWS Academy Graduate -- Cloud Foundations (AWS), 2026
+            \item Fundamentals of Accelerated Data Science (NVIDIA)
+        \end{highlightsforbulletentries}
+    \end{onecolentry}
 
-        \item \textbf{SEDS Mora} $|$ Developed the SEDS Mora Membership Portal
-        \textcolor{lightblack}{| 2025 -- 2026}
-
-        \item \textbf{Mathematics Society} $|$ Developed the Enigma competition website
-        \textcolor{lightblack}{| Jul 2025 -- Oct 2025}
-    \end{highlights}
-\end{onecolentry}
-
-	
-\section{Certificates \& Achievements}
-
-\begin{onecolentry}
-    \begin{highlightsforbulletentries}
-        \item AWS Academy Graduate -- Microservices and CI/CD Pipeline Builder (AWS), 2026
-        \item AWS Academy Graduate -- Cloud Foundations (AWS), 2026
-        \item Fundamentals of Accelerated Data Science (NVIDIA)
-    \end{highlightsforbulletentries}
-\end{onecolentry}
-	
-
-
-
-\section{ Notable Projects}
-
-\begin{onecolentry}
-    \textbf{MoraSpirit Member Portal} $|$ \textcolor{lightblack}{\textit{Node.js, Micro-services,mySQL}} \hfill \hrefWithoutArrow{https://app.moraspirit.com}{\faExternalLink*}
-\end{onecolentry}
-\vspace{0.10 cm}
-\begin{onecolentry}
-    \begin{highlights}
+    \section{Notable Projects}
+    \begin{project}{MoraSpirit Member Portal}{Node.js, Micro-services,mySQL}[\live{https://app.moraspirit.com}]
         \item Architected a centralized platform to drive operations and streamline workflows for \textbf{400+ members}.
         \item Implemented comprehensive modules for task assignment, year planning, seamless onboarding, and custom form generation.
-    \end{highlights}
-\end{onecolentry}
+    \end{project}
 
-
-\vspace{0.45 cm}
-
-
-\begin{onecolentry}
-    \textbf{Epilogue Runner Game (MoraSpirit)} $|$ \textcolor{lightblack}{\textit{Godot, Go}} \hfill \hrefWithoutArrow{https://github.com/moraspirit/Godot-Runner-Game}{\faGithub} $|$ \hrefWithoutArrow{https://run.moraspirit.com}{\faExternalLink*}
-\end{onecolentry}
-\vspace{0.10 cm}
-\begin{onecolentry}
-    \begin{highlights}
+    \begin{project}{Epilogue Runner Game (MoraSpirit)}{Godot, Go}[\repolive{https://github.com/moraspirit/Godot-Runner-Game}{https://run.moraspirit.com}]
         \item Developed a browser-based runner game for a university-wide competition, attracting \textbf{600+ registered users} and logging over \textbf{15,000 gameplay records}.
         \item Engineered a fully secured \textbf{Go} backend to handle real-time high-score tracking and leaderboard management, seamlessly integrated with the \textbf{Godot} client.
-    \end{highlights}
-\end{onecolentry}
+    \end{project}
 
-\vspace{0.45 cm}
-
-\begin{onecolentry}
-    \textbf{KuppiHub} $|$ \textcolor{lightblack}{\textit{Next.js, PostgreSQL, KMP, Firebase , MongoDB}} \hfill \hrefWithoutArrow{https://github.com/Kuppihub}{\faGithub} $|$ \hrefWithoutArrow{https://kuppihub.org}{\faExternalLink*}
-\end{onecolentry}
-\vspace{0.10 cm}
-\begin{onecolentry}
-    \begin{highlights}
+    \begin{project}{KuppiHub}{Next.js, PostgreSQL, KMP, Firebase , MongoDB}[\repolive{https://github.com/Kuppihub}{https://kuppihub.org}]
         \item Developed a centralized educational platform for the University of Moratuwa to efficiently manage and share peer-learning sessions (Kuppies), short notes, videos, and past papers.
         \item Streamlined academic resource distribution, successfully serving a growing community of over \textbf{1,000 total users} with \textbf{300+ registered accounts}.
-    \end{highlights}
-\end{onecolentry}
-\vspace{0.45 cm}
+    \end{project}
 
-\begin{onecolentry}
-    \textbf{Leo Connect} $|$ \textcolor{lightblack}{\textit{Kotlin MP, Compose, Workers, D1, Firebase}} \hfill \hrefWithoutArrow{https://github.com/Rexosphere/LeoConnect}{\faGithub}
-\end{onecolentry}
-\vspace{0.10 cm}
-\begin{onecolentry}
-    \begin{highlights}
+    \begin{project}{Leo Connect}{Kotlin MP, Compose, Workers, D1, Firebase}[\repo{https://github.com/Rexosphere/LeoConnect}]
         \item Won \textbf{1st Place at AlgoArena 2025} for developing a cross-platform (Android, iOS, Desktop) social application to connect Leo Club members.
-    \end{highlights}
-\end{onecolentry}
-\vspace{0.45 cm}
+    \end{project}
 
-\begin{onecolentry}
-    \textbf{Grocerly - AI Grocery Intelligence Platform} $|$ \textcolor{lightblack}{\textit{TypeScript, Bun,Vertex AI, Docker}}
-\end{onecolentry}
-
-\vspace{0.10 cm}
-
-\begin{onecolentry}
-    \begin{highlights}
+    \begin{project}{Grocerly - AI Grocery Intelligence Platform}{TypeScript, Bun,Vertex AI, Docker}
         \item Built an AI-powered grocery platform with \textbf{meal planning, recommendations, semantic search, and price optimization} using \textbf{Vertex AI} and a unified grocery catalog.
         \item Developed intelligent workflows for \textbf{shopping-list generation, product ranking, basket optimization, and cross-store savings analysis} with \textbf{Drizzle ORM}.
-    \end{highlights}
-\end{onecolentry}
+    \end{project}
 
-\vspace{0.45 cm}
-
-
-\begin{onecolentry}
-    \textbf{CutWire Prism} $|$ \textcolor{lightblack}{\textit{Qt 6, C++, FFmpeg, OpenGL}} \hfill \hrefWithoutArrow{https://github.com/CutWire-Studios/SwitchX}{\faGithub}
-\end{onecolentry}
-\vspace{0.10 cm}
-\begin{onecolentry}
-    \begin{highlights}
+    \begin{project}{CutWire Prism}{Qt 6, C++, FFmpeg, OpenGL}[\repo{https://github.com/CutWire-Studios/SwitchX}]
         \item Built a live media trigger and overlay tool for school events, concerts, and sports, achieving over \textbf{300+ monthly downloads} on Flathub.
-    \end{highlights}
-\end{onecolentry}
-\vspace{0.45 cm}
+    \end{project}
 
-
-\begin{onecolentry}
-    \textbf{Smart Banking Management System} $|$ \textcolor{lightblack}{\textit{React, FastAPI, PostgreSQL, AWS}} \hfill \hrefWithoutArrow{https://github.com/Team-SMDRS}{\faGithub} $|$ \hrefWithoutArrow{https://btrust.dpdns.org}{\faExternalLink*}
-\end{onecolentry}
-\vspace{0.10 cm}
-\begin{onecolentry}
-    \begin{highlights}
+    \begin{project}{Smart Banking Management System}{React, FastAPI, PostgreSQL, AWS}[\repolive{https://github.com/Team-SMDRS}{https://btrust.dpdns.org}]
         \item Developed and deployed a full-stack banking platform on \textbf{AWS} to manage complex transactions, utilizing a robust \textbf{FastAPI} and \textbf{PostgreSQL} REST API for secure processing and automated reporting.
-    \end{highlights}
-\end{onecolentry}
-\vspace{0.45 cm}
+    \end{project}
 
-
-\begin{onecolentry}
-    \textbf{Drift} $|$ \textcolor{lightblack}{\textit{Qt 6, QML, C++, FFmpeg, OpenGL, ONNX}} \hfill \hrefWithoutArrow{https://github.com/CutWire-Studios/Drift}{\faGithub} $|$ \hrefWithoutArrow{https://flathub.org/apps/org.cutwire.Drift}{\faExternalLink*}
-\end{onecolentry}
-\vspace{0.10 cm}
-\begin{onecolentry}
-    \begin{highlights}
+    \begin{project}{Drift}{Qt 6, QML, C++, FFmpeg, OpenGL, ONNX}[\repolive{https://github.com/CutWire-Studios/Drift}{https://flathub.org/apps/org.cutwire.Drift}]
         \item Developed an open-source desktop video editor featuring a multi-track timeline, GPU-accelerated effects, auto captions, and content-aware segmentation, with \textbf{2,300+ monthly downloads} on Flathub.
-    \end{highlights}
-\end{onecolentry}
-\vspace{0.45 cm}
+    \end{project}
 
-\begin{onecolentry}
-    \textbf{Mermaid Retina} $|$ \textcolor{lightblack}{\textit{VS Code Extension}} \hfill \hrefWithoutArrow{https://github.com/NipunSGeeTH/Mermaid-Retina}{\faGithub} $|$ \hrefWithoutArrow{https://marketplace.visualstudio.com/items?itemName=NipunSGeeTH.mermaid-retina}{\faExternalLink*}
-\end{onecolentry}
-\vspace{0.10 cm}
-\begin{onecolentry}
-    \begin{highlights}
+    \begin{project}{Mermaid Retina}{VS Code Extension}[\repolive{https://github.com/NipunSGeeTH/Mermaid-Retina}{https://marketplace.visualstudio.com/items?itemName=NipunSGeeTH.mermaid-retina}]
         \item Developed a comprehensive Mermaid graph export toolkit (PNG/JPG/PDF/SVG) featuring live side-previews and deep customization, achieving \textbf{1,000+ downloads} across the VS Code Marketplace and OpenVSX.
-    \end{highlights}
-\end{onecolentry}
-\vspace{0.45 cm}
+    \end{project}
 
+    % Keep the whole skills block with its heading. A short needspace
+    % was letting the last category fall onto the references page.
+    \needspace{6.2cm}
+    \section{Skills \& Technologies}
+    \begin{onecolentry}
+        \skillline{Languages}{Kotlin · Java · C++ · C · PHP · JavaScript · TypeScript · SQL · Python · Go}
+        \skillline{Mobile \& Desktop}{Kotlin Multiplatform · Jetpack Compose · Qt 6 · QML · OpenGL · GLSL · CMake}
+        \skillline{Web}{Laravel · Nuxt.js · Next.js · Vue.js · SvelteKit · React · Node.js · Tailwind CSS · WordPress}
+        \skillline{Backend \& Data}{Cloudflare Workers · D1 · PostgreSQL · MySQL · SQLite · Prisma · Room · Redis · Firebase Auth  · GraphQL}
+        \skillline{DevOps \& Tools}{Linux · Bash · Git · Docker · Kubernetes · Terraform · Ansible · ArgoCD  · Nginx · GitHub Actions · AWS · GCP · FFmpeg}
+    \end{onecolentry}
 
+    \section{References}
+    \begin{onecolentry}
+        \reference{Prof. D.A. Meedeniya}{Professor}{Department of Computer Science \& Engineering}{University of Moratuwa}{dulanim@cse.mrt.ac.lk}%
+        \hfill
+        \reference{Dr. Adeesha Wijayasiri}{Senior Lecturer}{Department of Computer Science \& Engineering}{University of Moratuwa}{adeeshaw@cse.mrt.ac.lk}%
+    \end{onecolentry}
+    \vspace{0.20 cm}
 
-
-
-	
-
-\section{Skills \& Technologies}
-
-\begin{onecolentry}
-    \textbf{Languages:} Kotlin · Java · C++ · C · PHP · JavaScript · TypeScript · SQL · Python · Go 
-    
-    \vspace{0.10 cm}
-    \textbf{Mobile \& Desktop:} Kotlin Multiplatform · Jetpack Compose · Qt 6 · QML · OpenGL · GLSL · CMake
-    
-    \vspace{0.10 cm}
-    \textbf{Web:} Laravel · Nuxt.js · Next.js · Vue.js · SvelteKit · React · Node.js · Tailwind CSS · WordPress 
-    
-    \vspace{0.10 cm}
-    \textbf{Backend \& Data:} Cloudflare Workers · D1 · PostgreSQL · MySQL · SQLite · Prisma · Room · Redis · Firebase Auth  · GraphQL
-    
-    \vspace{0.10 cm}
-    \textbf{DevOps \& Tools:} Linux · Bash · Git · Docker · Kubernetes · Terraform · Ansible · ArgoCD  · Nginx · GitHub Actions · AWS · GCP · FFmpeg 
-
-
-
-\end{onecolentry}
-	
-
-
-    \section*{References}
-
-\begin{onecolentry}
-    \begin{minipage}[t]{0.48\textwidth}
-        \textbf{Prof. D.A. Meedeniya}\\
-        Professor\\
-        Department of Computer Science \& Engineering\\
-        University of Moratuwa\\
-        \href{mailto:dulanim@cse.mrt.ac.lk}{dulanim@cse.mrt.ac.lk}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{0.48\textwidth}
-        \textbf{Dr. Adeesha Wijayasiri}\\
-        Senior Lecturer\\
-        Department of Computer Science \& Engineering\\
-        University of Moratuwa\\
-        \href{mailto:adeeshaw@cse.mrt.ac.lk}{adeeshaw@cse.mrt.ac.lk}
-    \end{minipage}
-\end{onecolentry}
-\vspace{0.20 cm}
-	
 \end{document}
