@@ -18,6 +18,7 @@ footskip=1.0 cm, % seperation between body and footer
 \usepackage{enumitem} % for customizing lists
 \usepackage{fontawesome5} % for using icons
 \usepackage{amsmath} % for math
+\definecolor{lightblack}{HTML}{444444}
 
 \usepackage[
 pdftitle={Sangeeth Kariyapperuma CV},
@@ -63,7 +64,7 @@ urlcolor=primaryColor
 	\color{gray}\textit{\small  Page \thepage{} of \pageref*{LastPage}}
 }{}{} % replace number by desired string
 \makeatother
-\pagestyle{customFooterStyle}
+
 
 \titleformat{\section}{
 	% avoid page braking right after the section title
@@ -91,40 +92,42 @@ urlcolor=primaryColor
 
 % \renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} % custom bullet points
 \newenvironment{highlights}{
-	\vspace{0.05 cm}
-	\begin{itemize}[
-		topsep=0.10 cm,
-		parsep=0.10 cm,
-		partopsep=0pt,
-		itemsep=0pt,
-		leftmargin=0.4 cm + 10pt
-		]
-	}{
-	\end{itemize}
-} % new environment for highlights
+    \begin{itemize}[
+        topsep=0.08 cm,
+        parsep=0pt,
+        partopsep=0pt,
+        itemsep=0.10 cm,
+        leftmargin=0.4 cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
 
 \newenvironment{highlightsforbulletentries}{
-	\begin{itemize}[
-		topsep=0.10 cm,
-		parsep=0.10 cm,
-		partopsep=0pt,
-		itemsep=0pt,
-		leftmargin=10pt
-		]
-	}{
-	\end{itemize}
-} % new environment for highlights for bullet entries
+    \begin{itemize}[
+        topsep=0.08 cm,
+        parsep=0pt,
+        partopsep=0pt,
+        itemsep=0.04 cm,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+}
+
 
 
 \newenvironment{onecolentry}{
-	\begin{adjustwidth}{
-			0.2 cm + 0.00001 cm
-		}{
-			0.2 cm + 0.00001 cm
-		}
-	}{
-	\end{adjustwidth}
-} % new environment for one column entries
+    \begin{adjustwidth}{
+        0.2 cm + 0.00001 cm
+    }{
+        0.2 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+    \vspace{0.12cm}
+}
+
 
 \newenvironment{twocolentry}[2][]{
 	\onecolentry
@@ -150,7 +153,7 @@ urlcolor=primaryColor
 } % new environment for three column entries
 
 \newenvironment{header}{
-	\setlength{\topsep}{0pt}\par\kern\topsep\centering\color{primaryColor}\linespread{1.5}
+	\setlength{\topsep}{0pt}\par\kern\topsep\centering\color{primaryColor}\linespread{1.2}
 }{
 	\par\kern\topsep
 } % new environment for the header
@@ -174,6 +177,7 @@ urlcolor=primaryColor
 
 
 \begin{document}
+\vspace*{1.0cm}
 	\newcommand{\AND}{\unskip
 		\cleaders\copy\ANDbox\hskip\wd\ANDbox
 		\ignorespaces
@@ -183,7 +187,7 @@ urlcolor=primaryColor
 	
 	\placelastupdatedtext
 	\begin{header}
-		\fontsize{30 pt}{30 pt}
+		\fontsize{25 pt}{20 pt}
 		\textbf{Sangeeth Kariyapperuma}
 		
 		\vspace{0.3 cm}
@@ -231,12 +235,11 @@ urlcolor=primaryColor
 	
 	
 	
-	
 \begin{twocolentry}{
-    May 2024 – Present
+    May 2024 -- Present
 }
 \textbf{University of Moratuwa}\\
-\hspace*{1.5em}\textbullet\ BSc Eng. Hons. in Computer Science \& Engineering
+\hspace*{1.5em}\textbullet\ BSc Eng. Hons. in Computer Science \& Engineering\
 \end{twocolentry}
 	
 	\vspace{0.25 cm}
@@ -251,46 +254,45 @@ urlcolor=primaryColor
 \end{twocolentry}
 
 
-
 \section{Awards \& Competitions}
 
 \begin{onecolentry}
-    \textbf{Champions – Mobitel CodeBlast Hackathon} $|$ \textit{Ministry of Digital Economy} \hfill \textit{Sep 2025}
+    \textbf{Champions -- Mobitel CodeBlast Hackathon}
+    \textcolor{lightblack}{$|$ Ministry of Digital Economy $|$ Sep 2025}
 \end{onecolentry}
 
-
-\vspace{0.10 cm}
-
-\begin{onecolentry}
-    \textbf{Champions – AlgoArena 2025} $|$ \textit{Leo Club, Univ. of Sri Jayewardenepura} \hfill \textit{Jan 2026}
-\end{onecolentry}
-
-
-\vspace{0.10 cm}
 
 
 \begin{onecolentry}
-    \textbf{1st Runner-Up – BITCODE V6.0} $|$ \textit{Rajarata University of Sri Lanka} \hfill \textit{2026}
+    \textbf{Champions -- AlgoArena 2025}
+    \textcolor{lightblack}{$|$ Leo Club, Univ. of Sri Jayewardenepura $|$ Jan 2026}
 \end{onecolentry}
 
-\vspace{0.10 cm}
-
-\begin{onecolentry}
-    \textbf{1st Runner-Up – Duothan 6.0} $|$ \textit{NSBM Green University } \hfill \textit{2026}
-\end{onecolentry}
-
-\vspace{0.10 cm}
 
 
 \begin{onecolentry}
-    \textbf{1st Runner-Up – Agentrix } $|$ \textit{University of Ruhuna} \hfill \textit{2026}
+    \textbf{1st Runner-Up -- BITCODE V6.0}
+    \textcolor{lightblack}{$|$ Rajarata University of Sri Lanka $|$ 2026}
 \end{onecolentry}
-\vspace{0.10 cm}
+
+
+
 \begin{onecolentry}
-    \textbf{2nd Runner-Up – Codemania V6.0 } $|$ \textit{IEEE SLTC} \hfill \textit{2026}
+    \textbf{1st Runner-Up -- Duothan 6.0}
+    \textcolor{lightblack}{$|$ NSBM Green University $|$ 2026}
 \end{onecolentry}
 
 
+\begin{onecolentry}
+    \textbf{1st Runner-Up -- Agentrix}
+    \textcolor{lightblack}{$|$ University of Ruhuna $|$ 2026}
+\end{onecolentry}
+
+
+\begin{onecolentry}
+    \textbf{2nd Runner-Up -- Codemania V6.0}
+    \textcolor{lightblack}{$|$ IEEE SLTC $|$ 2026}
+\end{onecolentry}
 
 \section{Experience \& Leadership}
 
@@ -299,14 +301,19 @@ urlcolor=primaryColor
 \end{onecolentry}
 \begin{onecolentry}
     \begin{highlights}
-        \item \textbf{Web \& Technology Pillar Head} \hfill \textit{Apr 2026 -- Present}
-        \item \textbf{Web \& Technology Pillar Member} \hfill \textit{Apr 2025 -- Apr 2026}
+        \item \textbf{Web \& Technology Pillar Head}
+        \textcolor{lightblack}{| Apr 2026 -- Present}
+        \item \textbf{Web \& Technology Pillar Member}
+        \textcolor{lightblack}{| Apr 2025 -- Apr 2026}
         \item \textit{Impact:} Leading a team of 20+ to build, optimize, and maintain the university's premier sports media web platforms.
     \end{highlights}
 \end{onecolentry}
 
+\vspace{0.15cm}
+
 \begin{onecolentry}
-    \textbf{IEEE Student Branch, UOM} \hfill \textit{Apr 2026 -- Present}
+    \textbf{IEEE Student Branch, UOM}
+    \textcolor{lightblack}{| Apr 2026 -- Present}
 \end{onecolentry}
 \begin{onecolentry}
     \begin{highlights}
@@ -315,42 +322,45 @@ urlcolor=primaryColor
     \end{highlights}
 \end{onecolentry}
 
+\vspace{0.15cm}
+
 \begin{onecolentry}
     \textbf{University of Moratuwa Clubs \& Societies}
 \end{onecolentry}
 \begin{onecolentry}
     \begin{highlights}
-         \item \textbf{IESL RoboGames} $|$ Web Development Committee Member  \hfill \textit{Oct 2025 -- May 2026}
-        \item \textbf{SLIoT} $|$ Technical Committee Member \hfill \textit{Oct 2025 -- May 2026}
-        \item \textbf{SEDS Mora} $|$ Developed the SEDS Mora Membership Portal \hfill \textit{2025 -- 2026}
-        \item \textbf{Mathematics Society } $|$ Developed the Enigma competition website \hfill \textit{Jul 2025 -- Oct 2025}
+        \item \textbf{IESL RoboGames} $|$ Web Development Committee Member
+        \textcolor{lightblack}{| Oct 2025 -- May 2026}
 
-        
+        \item \textbf{SLIoT} $|$ Technical Committee Member
+        \textcolor{lightblack}{| Oct 2025 -- May 2026}
+
+        \item \textbf{SEDS Mora} $|$ Developed the SEDS Mora Membership Portal
+        \textcolor{lightblack}{| 2025 -- 2026}
+
+        \item \textbf{Mathematics Society} $|$ Developed the Enigma competition website
+        \textcolor{lightblack}{| Jul 2025 -- Oct 2025}
     \end{highlights}
 \end{onecolentry}
 
 	
-	\section{ Certificates \& Achievements }
-	
-	\begin{onecolentry}
-		
-		\begin{highlightsforbulletentries}
-           \item  Certificate – Fundamentals of Accelerated Data Science (NVIDIA)
-			\item {Python Programming Course (UoM – Open Learning Platform)}
- 
-			
-			\item {Web Design for Beginners (UoM – Open Learning Platform)}
-
-		\end{highlightsforbulletentries}
-		
-	\end{onecolentry}
-	
-
-
-	\section{ Notable Projects}
+\section{Certificates \& Achievements}
 
 \begin{onecolentry}
-    \textbf{MoraSpirit Member Portal} $|$ \textit{Node.js, Micro-services,mySQL} \hfill \hrefWithoutArrow{https://app.moraspirit.com}{\faExternalLink*\ app.moraspirit.com}
+    \begin{highlightsforbulletentries}
+        \item AWS Academy Graduate -- Microservices and CI/CD Pipeline Builder (AWS), 2026
+        \item AWS Academy Graduate -- Cloud Foundations (AWS), 2026
+        \item Fundamentals of Accelerated Data Science (NVIDIA)
+    \end{highlightsforbulletentries}
+\end{onecolentry}
+	
+
+
+
+\section{ Notable Projects}
+
+\begin{onecolentry}
+    \textbf{MoraSpirit Member Portal} $|$ \textcolor{lightblack}{\textit{Node.js, Micro-services,mySQL}} \hfill \hrefWithoutArrow{https://app.moraspirit.com}{\faExternalLink*}
 \end{onecolentry}
 \vspace{0.10 cm}
 \begin{onecolentry}
@@ -365,7 +375,7 @@ urlcolor=primaryColor
 
 
 \begin{onecolentry}
-    \textbf{Epilogue Runner Game (MoraSpirit)} $|$ \textit{Godot, Go} \hfill \faGithub\ \hrefWithoutArrow{https://github.com/moraspirit/Godot-Runner-Game}{GitHub} $|$ \hrefWithoutArrow{https://run.moraspirit.com}{\faExternalLink*\ run.moraspirit.com}
+    \textbf{Epilogue Runner Game (MoraSpirit)} $|$ \textcolor{lightblack}{\textit{Godot, Go}} \hfill \hrefWithoutArrow{https://github.com/moraspirit/Godot-Runner-Game}{\faGithub} $|$ \hrefWithoutArrow{https://run.moraspirit.com}{\faExternalLink*}
 \end{onecolentry}
 \vspace{0.10 cm}
 \begin{onecolentry}
@@ -378,7 +388,7 @@ urlcolor=primaryColor
 \vspace{0.45 cm}
 
 \begin{onecolentry}
-    \textbf{KuppiHub} $|$ \textit{Next.js, PostgreSQL, KMP, Firebase , MongoDB} \hfill 2024 -- Present $|$ \faGithub\ \hrefWithoutArrow{https://github.com/Kuppihub}{GitHub} $|$ \hrefWithoutArrow{https://kuppihub.org}{\faExternalLink*\ kuppihub.org}
+    \textbf{KuppiHub} $|$ \textcolor{lightblack}{\textit{Next.js, PostgreSQL, KMP, Firebase , MongoDB}} \hfill \hrefWithoutArrow{https://github.com/Kuppihub}{\faGithub} $|$ \hrefWithoutArrow{https://kuppihub.org}{\faExternalLink*}
 \end{onecolentry}
 \vspace{0.10 cm}
 \begin{onecolentry}
@@ -390,7 +400,7 @@ urlcolor=primaryColor
 \vspace{0.45 cm}
 
 \begin{onecolentry}
-    \textbf{Leo Connect} $|$ \textit{Kotlin MP, Compose, Workers, D1, Firebase} \hfill 2025 $|$ \faGithub\ \hrefWithoutArrow{https://github.com/Rexosphere/LeoConnect}{GitHub}
+    \textbf{Leo Connect} $|$ \textcolor{lightblack}{\textit{Kotlin MP, Compose, Workers, D1, Firebase}} \hfill \hrefWithoutArrow{https://github.com/Rexosphere/LeoConnect}{\faGithub}
 \end{onecolentry}
 \vspace{0.10 cm}
 \begin{onecolentry}
@@ -401,30 +411,23 @@ urlcolor=primaryColor
 \vspace{0.45 cm}
 
 \begin{onecolentry}
-
-    \textbf{Grocerly - AI Grocery Intelligence Platform} $|$ \textit{TypeScript, Bun,Vertex AI, Docker}
-
+    \textbf{Grocerly - AI Grocery Intelligence Platform} $|$ \textcolor{lightblack}{\textit{TypeScript, Bun,Vertex AI, Docker}}
 \end{onecolentry}
 
 \vspace{0.10 cm}
 
 \begin{onecolentry}
-
     \begin{highlights}
-
         \item Built an AI-powered grocery platform with \textbf{meal planning, recommendations, semantic search, and price optimization} using \textbf{Vertex AI} and a unified grocery catalog.
-
         \item Developed intelligent workflows for \textbf{shopping-list generation, product ranking, basket optimization, and cross-store savings analysis} with \textbf{Drizzle ORM}.
-
     \end{highlights}
-
 \end{onecolentry}
 
 \vspace{0.45 cm}
 
 
 \begin{onecolentry}
-    \textbf{CutWire Prism} $|$ \textit{Qt 6, C++, FFmpeg, OpenGL} \hfill \faGithub\ \hrefWithoutArrow{https://github.com/CutWire-Studios/SwitchX}{GitHub}
+    \textbf{CutWire Prism} $|$ \textcolor{lightblack}{\textit{Qt 6, C++, FFmpeg, OpenGL}} \hfill \hrefWithoutArrow{https://github.com/CutWire-Studios/SwitchX}{\faGithub}
 \end{onecolentry}
 \vspace{0.10 cm}
 \begin{onecolentry}
@@ -436,7 +439,7 @@ urlcolor=primaryColor
 
 
 \begin{onecolentry}
-    \textbf{Smart Banking Management System} $|$ \textit{React, FastAPI, PostgreSQL, AWS} \hfill 2025 $|$ \faGithub\ \hrefWithoutArrow{https://github.com/Team-SMDRS}{GitHub} $|$ \hrefWithoutArrow{https://btrust.dpdns.org}{\faExternalLink*\ btrust.dpdns.org}
+    \textbf{Smart Banking Management System} $|$ \textcolor{lightblack}{\textit{React, FastAPI, PostgreSQL, AWS}} \hfill \hrefWithoutArrow{https://github.com/Team-SMDRS}{\faGithub} $|$ \hrefWithoutArrow{https://btrust.dpdns.org}{\faExternalLink*}
 \end{onecolentry}
 \vspace{0.10 cm}
 \begin{onecolentry}
@@ -447,23 +450,19 @@ urlcolor=primaryColor
 \vspace{0.45 cm}
 
 
-
-
 \begin{onecolentry}
-    \textbf{Salondora} $|$ \textit{Full-Stack} \hfill 2025 $|$ \hrefWithoutArrow{https://salondora.com}{\faExternalLink*\ salondora.com}
+    \textbf{Drift} $|$ \textcolor{lightblack}{\textit{Qt 6, QML, C++, FFmpeg, OpenGL, ONNX}} \hfill \hrefWithoutArrow{https://github.com/CutWire-Studios/Drift}{\faGithub} $|$ \hrefWithoutArrow{https://flathub.org/apps/org.cutwire.Drift}{\faExternalLink*}
 \end{onecolentry}
 \vspace{0.10 cm}
 \begin{onecolentry}
     \begin{highlights}
-        \item Developed a full-featured web and mobile (Play Store) platform for handling appointments, staff, and customers, currently live in active production.
+        \item Developed an open-source desktop video editor featuring a multi-track timeline, GPU-accelerated effects, auto captions, and content-aware segmentation, with \textbf{2,300+ monthly downloads} on Flathub.
     \end{highlights}
 \end{onecolentry}
 \vspace{0.45 cm}
 
-
-
 \begin{onecolentry}
-    \textbf{Mermaid Retina} $|$ \textit{VS Code Extension} \hfill \hrefWithoutArrow{https://github.com/NipunSGeeTH/Mermaid-Retina}{\faGithub\ GitHub} $|$ \hrefWithoutArrow{https://marketplace.visualstudio.com/items?itemName=NipunSGeeTH.mermaid-retina}{\faExternalLink*\ Marketplace}
+    \textbf{Mermaid Retina} $|$ \textcolor{lightblack}{\textit{VS Code Extension}} \hfill \hrefWithoutArrow{https://github.com/NipunSGeeTH/Mermaid-Retina}{\faGithub} $|$ \hrefWithoutArrow{https://marketplace.visualstudio.com/items?itemName=NipunSGeeTH.mermaid-retina}{\faExternalLink*}
 \end{onecolentry}
 \vspace{0.10 cm}
 \begin{onecolentry}
@@ -472,17 +471,33 @@ urlcolor=primaryColor
     \end{highlights}
 \end{onecolentry}
 \vspace{0.45 cm}
-	
+
+
+
+
 
 	
-	
-	
 
-	
-	
-	
-	
+\section{Skills \& Technologies}
 
+\begin{onecolentry}
+    \textbf{Languages:} Kotlin · Java · C++ · C · PHP · JavaScript · TypeScript · SQL · Python · Go 
+    
+    \vspace{0.10 cm}
+    \textbf{Mobile \& Desktop:} Kotlin Multiplatform · Jetpack Compose · Qt 6 · QML · OpenGL · GLSL · CMake
+    
+    \vspace{0.10 cm}
+    \textbf{Web:} Laravel · Nuxt.js · Next.js · Vue.js · SvelteKit · React · Node.js · Tailwind CSS · WordPress 
+    
+    \vspace{0.10 cm}
+    \textbf{Backend \& Data:} Cloudflare Workers · D1 · PostgreSQL · MySQL · SQLite · Prisma · Room · Redis · Firebase Auth  · GraphQL
+    
+    \vspace{0.10 cm}
+    \textbf{DevOps \& Tools:} Linux · Bash · Git · Docker · Kubernetes · Terraform · Ansible · ArgoCD  · Nginx · GitHub Actions · AWS · GCP · FFmpeg 
+
+
+
+\end{onecolentry}
 	
 
 
